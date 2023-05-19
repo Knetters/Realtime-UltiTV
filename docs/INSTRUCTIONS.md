@@ -1,141 +1,140 @@
-# Connecting People - Realtime Web App
+# Interactive functionality
 
-Om de klantrelatie te bestendigen ontwikkel je bij wijze van relatiegeschenk een realtime toepassing voor een bestaande opdrachtgever. Je kiest een opdrachtgever waar je het afgelopen jaar met plezier mee hebt samengewerkt. Verbaas ze met jouw eigen initiatief en jouw capaciteiten en versterk daarmee de relatie.
+Ontwerp en maak voor een opdrachtgever een interactieve toepassing die voor iedereen toegankelijk is.
+
 
 ## Context
 
-Deze leertaak hoort bij sprint 11 "Connecting People". Dit is een leertaak die je in een team uitvoert voor een opdrachtgever.
+Deze leertaak hoort bij sprint 9 "The Web is for Everyone". Dit is een leertaak die je individueel uitvoert voor een opdrachtgever.
 
-In het college S11W1-01-Sprintplanning-Connecting-People en de workshop S11W1-02-My-first-chatroom wordt de opdracht en de werkwijze uitgelegd.
+In het college S09W1-01-Sprintplanning-The-Web-Is-For-Everyone wordt de opdracht uitgelegd.
+
+Bij deze leertaak hoort de deeltaak:
+- [Activity Diagram](https://github.com/fdnd-task/the-web-is-for-everyone-activity-diagram)
+
 
 ## Doel van deze opdracht
 
-Je maakt in deze leertaak een real-time applicatie waarmee mensen direct met elkaar in verbinding staan om te chatten, berichten te sturen, vragen te stellen, een chatbot te gebruiken, of iets anders.
+Tim Berners-Lee, de uitvinder van het internet zei: "_The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect._"
+
+Één van de mooiste [principes](https://www.w3.org/DesignIssues/Principles.html) van het web is dat iedereen met een computer en een browser het web kan gebruiken. [Het web is voor iedereen](https://www.youtube.com/watch?v=UMNFehJIi0E). 
+<br>Maar het web is geen gecontroleerde (programmeer) omgeving, je kan er gerust van uit gaan dat niemand precies hetzelfde te zien krijgt als wat jij in je browser ziet. Er zijn technische beperkingen, zoals afmetingen van de browser, grootte van het apparaat, manier van interactie, kwaliteit van de hardware, kwaliteit van het netwerk en er zijn mensen, allemaal verschillende mensen ...
+
+Het doel van deze opdracht is te leren hoe je een interactieve functionalteit kan ontwerpen en maken met behulp van _Progressive Enhancement_ zodat het voor iedereen toegankelijk is.
+
 
 ## Werkwijze
 
-Je werkt in een team van max. 3 frontenders aan een website voor een opdrachtgever. Zorg er voor dat je duidelijk afspraken maakt en elkaar dagelijks op de hoogte houdt van vorderingen. Samen met jouw team ben je verantwoordelijk voor de planning, het samenwerkingsproces én het eindresultaat.
+Ontwerp en maak een functionaliteit voor je opdrachtgever op basis van een _user story_. De _user story_ voor sprint 9 gaat over het posten van data met behulp van de REST-API. Je bouwt je website in 3 lagen, volgens het principe van _Progressive Enhancement_. 
+<br>[Progressive enhancement](https://briefs.video/videos/is-progressive-enhancement-dead-yet/) is een _(coding) strategy_ waarmee je er voor kan zorgen dat je website het altijd doet. 
 
-Deze opdracht gaat over alle fases van de DLC [analyseren](#analyseren), [ontwerpen](#ontwerpen), [bouwen](#bouwen), [integreren](#integreren) en [testen](#testen).
+1. Eerst bouw je de _core functionality_ van je website in HTML en met behulp van formulieren en NodeJS, voor het server-side afhandelen van het posten van data. (Content layer)
+2. Daarna voeg je CSS toe voor feedback voor de gebruiker en om de huisstijl toe te passen. (Presentation layer)
+3. Tot slot voeg je JavaScript (en CSS) toe om de User Experience te verbeteren. (Client-side scripting)
+
+![image](https://user-images.githubusercontent.com/1391509/226204781-5594ea1b-56c3-45ac-87d4-56dd25e35e58.png)
+<br><small>_The Chocolatey Layers of Progressive Enhancement_</small>
+
+
+Voor deze opdracht doorloop je alle fases van de DLC [analyseren](#analyseren), [ontwerpen](#ontwerpen), [bouwen](#bouwen), [integreren](#integreren) en [testen](#testen).
+
 
 ### Analyseren
-In de analysefase ga je na of wat jullie vorige sprint hebben vastgelegd over  hoe jullie [samenwerken](#samenwerken) nog klopt. Je houdt een [brainstom](#brainstorm) over het te realiseren real-time product. Ook onderzoek je wat jullie gaan maken en maak je een [planning](#planning). 
 
-#### Samenwerken
-In de analysefase herzie je als team afspraken over hoe je gaat samenwerken.
+In de analysefase inventariseer je wat er moet gebeuren om een taak uit te voeren. Je kiest een _user story_ waar je aan gaat werken en onderzoekt hoe het posten van data werkt met de REST-API.
 
-1. Fork deze leertaak en zet de _repository_ klaar voor het team zodat iedereen met dezelfde codebase kan werken. Kopieer de bestanden uit de vorige sprint en koppel Adaptable of Railway aan deze nieuwe omgeving. (Dit is handig omdat je de bewijslast uit vorige sprint intact laat.)
-3. Bekijk het Teamcanvas en vul het aan met eventuele inzichten uit de retrospect van vorige sprint, bespreek bijgestelde persoonlijke doelen met je teamgenoten. Loop als team de andere vlakken van het Teamcanvas na.
-5. Ga na welke afspraken jullie hadden over hoe jullie samenwerken, vul aan met nieuwe inzichten en leg de afspraken vast in de _wiki_.
+#### Sprintplanning
+1. Lees de instructies van deze leertaak zorgvuldig door
+2. Bekijk de verschillende fases van de DLC en wat je per fase gaat doen
+3. Bekijk de planning van [sprint 9](https://programma.fdnd.nl/data-driven-web/the-web-is-for-everyone) en wat je per week gaat doen
+4. Bespreek wat je aan werk verwacht en maak aantekeningen. (wat komt je bekend voor, wat heb je al vaker gedaan of wat lijkt je lastig)
+5. Neem ook de leervraag uit sprint 8 over en bedenk hoe je daar de komende 3 weken aan kan werken
 
-#### Materiaal voor samenwerken
+#### User Stories
+Kies een _user story_ met het label **sprint-9** uit de backlog van het project waar je aan gaat werken. 
+De projecten staan bij [FDND Agency](https://github.com/fdnd-agency).
 
-- [Adaptable.io](https://adaptable.io/)
-- [Railway](https://railway.app/)
-- [How to Collaborate on GitHub](https://code.tutsplus.com/tutorials/how-to-collaborate-on-github--net-34267)
-- [download het Team Canvas](https://github.com/fdnd-task/performance-matters-fast-website/blob/main/docs/Teamcanvas.pdf)
-- [Lees instructies over het gebruik van het Teamcanvas in de deeltaak uit sprint 1](https://github.com/fdnd-task/your-tribe-team-canvas)
+#### REST-API
+Bekijk in de documentatie van de API of er voor de _user story_ een POST endpoint is en hoe die werkt. ProTip: Gebruik eventueel [Insomnia](https://insomnia.rest/) om bestaande endpoints te onderzoeken.
 
-#### Brainstorm
+### Bronnen analyseerfase
 
-In deze sprint maak je als team een real-time toepassing om je opdrachtgever te verassen. We beginnen met een brainstorm om vast te stellen wat je gaat opleveren. Tip: Houd het klein en behapbaar.
-
-1. Houdt een brainstorm over het te realiseren realtime product
-2. Maak een morphological chart om systematisch ideeën te genereren
-3. Zorg dat je tenminste 10 ideeën hebt verzameld voor je verder gaat.
-
-##### Materiaal voor de brainstorm
-
-De twee onderstaande video’s helpen je bij het gebruiken van de Morphological chart als design thinking tool voor het genereren van ideeën:re
-
-- [Design Thinking for Education, Ep. 3: Morphological Charts](https://www.youtube.com/watch?v=sO4R8yCF2iw)
-- [Initial ideas Morphological analysis](https://www.youtube.com/watch?v=ijsQgOUt9s8)
-
-#### Planning
-In de analysefase bespreek je als team welke werkzaamheden er zijn, wie wat gaat doen en maak je een planning.
-
-1. Koppel het _project board_ aan de nieuwe gezamenlijke _repository_ om bij te kunnen houden wie wat doet.
-2. Plan voor de aankomende weken alle standups en reviews en noteer de planning in jullie _project board_.
-3. Bekijk álle _User Stories_ die bij het project horen. Bespreek met elkaar of er een user story bij zit die past bij de ideeën.
-4. Stel vervolgens samen een *real-time user story* op afgestemd op jullie ideeën. Maak zonnodig meerdere user stories.
-5. Maak voor de *real-time user story* meerdere taken aan in het *project board*, geef ze een prioriteit en voeg de namen toe van de mensen die eraan gaan werken. ProTip: Als taken te groot zijn (langer dan een dag duren) is het zinvol ze op te splitsen in meerdere kleinere taken.
-
-#### Materiaal planning
-
-- [About Githhub Projects, quickstart en best practices](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
-- [Wat is een User Story?](https://agilescrumgroup.nl/wat-is-een-user-story/)
-- [What's Microproductivity?](https://blog.trello.com/microproductivity-break-tasks-into-smaller-steps)
+* [Wat is een REST API nou echt: het basisidee](https://blog.wearefrank.nl/wat-is-een-rest-api-nou-echt-het-basisidee)
 
 ### Ontwerpen
-In de ontwerpfase neem je ontwerpbeslissingen en zorg je dat je precies weet wat je moet gaan bouwen
 
-1. Kies onderbouwd, een van de ideeën en maak daar een ontwerp voor
-2. Begin met het schetsen van wireframes, check die bij medestudenten en docenten en verbeter ze met de nieuwe inzichten.
-3. Werk jouw wireframes uit in Figma en link ze aan elkaar zodat een digitale wireflow ontstaat.
-4. Maak de schematische weergave van de state van jouw applicatie in een process-flow.
-5. Laat zien welke socket verbindingen gelegd worden in een data-lifecycle diagram.
+In de ontwerpfase bedenk en schets je eerst wat je gaat maken. Voor deze opdracht doorloop je meerdere keren de DLC omdat je de functionaliteit in 3 lagen gaat opbouwen, volgens het principe van _Progressive Enhancement_. Je gaat dan ook meerdere keren schetsen.
+
+Eerst ontwerp en bouw je de _core functionality_ van je website in HTML en met behulp van formulieren en NodeJS, voor het server-side afhandelen van het posten van data. 
+
+#### Wireflow
+Teken de _core-functionalty_ van de _user story_ in een wireflow. Zorg dat je de verschillende states van het formulier, het versturen van data, een _succes state_ en mogelijke _errors_ ook tekent. 
+
+#### Breakdown
+Maak een breakdown-schets waarin je de juiste HTML formulier-elementen die je nodig hebt beschrijft en pseudeo-code voor wat er server-side in NodeJS gebeurt. 
+
+### Bronnen ontwerpfase
+* [Wireframing User Flow with Wireflows](https://balsamiq.com/learn/articles/wireflows/)
+* [The Role of Enhancement in Web Design](https://www.nngroup.com/articles/enhancement/)
+* [The Input (Form Input) element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input)
+* [The Form element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
 
 ### Bouwen
-In de bouwfase realiseer je de beslissingen uit de ontwerpfase.
 
-1. Voeg socket.io toe aan aan je project met behulp van npm install.
-2. Zorg dat er serverside en client-side naar basis events geluisterd wordt.
-3. Implementeer in kleine stapjes de functionaliteit voor jouw toepassing. Deel als het nodig is de stapjes in met behulp van een docent.
+#### Inrichten ontwikkelomgeving
 
-ProTip: Je kunt je functionaliteit het beste op een losse branch uitwerken, deze branch kan je als dev-project in Adaptable of Railway live brengen zodat je live kunt testen.
+Je gaat een server-side website bouwen met Node/Express/EJS gebaseerd op een REST API met JSON. Installeer de Node ontwikkelomgeving en installeer de packages die je nodig hebt. Maak de files en folders aan die je nodig hebt op de Node server. Hint: Gebruik hiervoor `npm init` en `npm install express ejs dotenv` als je from scratch wilt beginnen, of kopieer je project uit de vorige sprint en voer `npm install` uit.
 
-#### Materiaal bouwfase
+#### Progressive enhancement
+Progressive enhancement is een _(coding) strategy_ waarmee je er voor kan zorgen dat je website het altijd doet. 
 
-- [socket.io](https://socket.io/)
-- [socket.io documentatie](https://socket.io/docs/v4/)
-- [Barebonechat voorbeeld van ju5tu5@github](https://github.com/ju5tu5/barebonechat)
+1. Eerst bouw je de _core functionality_ van je website in HTML en met behulp van formulieren en NodeJS, voor het server-side afhandelen van het posten van data. 
+2. Daarna voeg je CSS toe voor feedback voor de gebruiker en om de huisstijl toe te passen.
+3. Tot slot voeg je client-side Javascript toe om de _User Experience_ te verbeteren.
+
+### Bronnen bouwfase
+
+* [JavaScript Fetch API Ultimate Guide](https://blog.webdevsimplified.com/2022-01/js-fetch-api/)
+* [Understanding Progressive Enhancement](https://alistapart.com/article/understandingprogressiveenhancement/)
+* [The power of progressive enhancement](https://archive.hankchizljaw.com/wrote/the-power-of-progressive-enhancement/)
+<!-- * [Progressive Enhancement and Data Visualizations](https://css-tricks.com/progressive-enhancement-data-visualizations/) -->
+
 
 ### Integreren
-In de integratiefase voer je de aanpassingen door zodat iedereen ze kan zien en er op verder kan bouwen. 
+In de integratiefase voer je de aanpassingen door zodat iedereen ze kan zien.
 
-1. Integreer jouw real-time web app in de bestaande website van de opdrachtgever.
-2. Maak een *pull-request* voor de real-time functionaliteit.
-3. Handel het *pull-request* af, zorg voor een helder gedocumenteerd *pull-request* door bij de afhandeling relevante berichten te typen. Neem een screenshot van *pull-requests* op in je wiki!
-4. Publiceer jouw project via bijv. Adaptable of Railway (nb. cyclic ondersteund helaas geen sockets!)
-
-
-#### Materiaal integratiefase
-
-- [Creating a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
-- [GitHub, Aan een project bijdragen](https://git-scm.com/book/nl/v2/GitHub-Aan-een-project-bijdragen) (laat je niet afschrikken door de command line code, jij kunt daar prima GitHub Desktop voor gebruiken!)
-- [Adaptable.io](https://adaptable.io/)
-- [Railway](https://railway.app/)
+Als je helemaal klaar bent en alles lokaal werkt ga je verder met het publiceren van jouw project op internet. Omdat we met Node werken is dit iets ingewikkelder dan voorheen, er moet namelijk een serveromgeving opgestart worden. Wij gebruiken cyclic.sh als hostingpartij maar je mag natuurlijk je eigen voorkeur volgen als die anders is.
 
 ### Testen
-In de testfase controleer je of jouw aanpassingen werken zoals bedoeld. Zoals je weet gaat de testfase over jouw eindgebruikers.
 
-1. Doe een user-test met medestudenten of familieleden. Bereid de test voor met een testplan en noteer je plan én je bevindingen in de wiki.
-2. Doe een accessibility test met lighthouse - vergeet niet de handmatige tests uit te voeren - en noteer je bevindingen in de wiki.
-3. Doe een performance test met lighthouse en noteer je bevindingen in de wiki.
-4. Doe tenslotte een acceptatietest door jouw relatiegeschenk te presenteren aan de opdrachtgever en noteer je bevindingen in de wiki.
+Om er voor te zorgen dat de functionaliteit voor iedereen toegankelijk is test je je werk in verschillende browsers en devices.
+
+Gebruik [caniuse.com](https://caniuse.com), [html5test.com](https://html5test.com), [css3test.com](http://css3test.com) en [kangax.github.io/compat-table/es6/](https://kangax.github.io/compat-table/es6/) om je code te testen en te achterhalen welke technieken browsers ondersteunen. 
 
 ## Criteria
 *Definitions of done*
 
-Focus sprint 11 - De focus van deze sprint ligt op het maken van multi-user omgeving door het opzetten van een real-time verbinding tussen client en server. 
+Focus sprint 9 - De focus van deze sprint ligt op Progressive Enhancement, toegankelijkheid en testresultaten gebruiken voor het verbeteren van een ontwerp.
 
-### Deze leertaak hoort bij de gedragscriteria:
+Doel van deze opdracht:
 
-M: Je houdt in beginnende mate rekening met de belangen van de eindgebruiker bij het realiseren van een oplossing voor een opdrachtgever.
+* je leert hoe je een interactieve functionalteit kan ontwerpen en maken met behulp van _Progressive Enhancement_ zodat het voor iedereen toegankelijk is.
 
-C: Je documenteert op professionele wijze en houdt voortgang bij.
+Voor deze leertaak gelden de gedragscriteria:
 
-P: Je combineert aangeboden principes en conventies op het gebied van frontend, interface design en vormgeving om een passende oplossing voor een opdrachtgever te realiseren.
-
-P: Je schetst om gedachten en processen te verkennen en abstracte begrippen over te brengen.
-
-L: Je maakt aangeboden en zelf gevonden materie eigen en gebruikt dit bij leertaken, deelt ervaring binnen de squad.
+* M: Je houdt in beginnende mate rekening met de belangen van de eindgebruiker bij het realiseren van een oplossing voor een opdrachtgever
+* S: Je draagt verantwoording voor eigen resultaten, verwerkt ontvangen feedback en wijst teamleden op hun verantwoording
+* C: Je kan ontwerpkeuzes, eigen ideeën en producten begrijpelijk overbrengen aan belanghebbenden
+* P: Je analyseert een vraag, signaleert knelpunten en volgt de aangeboden oplossingsrichting
+* P: Je schetst om gedachten en processen te verkennen en abstracte begrippen over te brengen
 
 Deze opdracht is done als:
 
-- [ ] Er staat een werkende real-time web app online en deze is door meerdere gebruikers tegelijk te gebruiken
-- [ ] Er is een nieuwe user story opgesteld voor de real-time functionaliteit
-- [ ] De functionaliteit werkt zoals verwacht
-- [ ] De app is gedocumenteerd in de Readme van het project
-- [ ] Alle beslissingen zijn navolgbaar in de wiki van het project
-- [ ] De opdrachtgever is blij verrast met het resultaat
+- [ ] Je hebt interactieve functionaliteit ontworpen en gemaakt met Node, Express en EJS en een REST API en client-side JS, CSS en HTML
+- [ ] Jouw gebruikers kunnen iets achterlaten op jouw website (user generated content)
+- [ ] Je website is online gepubliceerd
+- [ ] Je hebt gewerkt volgens de verschillende fases van de development-lifecycle en je hebt je proces bijgehouden in de Wiki
+- [ ] Je hebt je werk getest in verschillende browsers en devices en de test gedocumenteerd in je wiki
+- [ ] Je hebt comments in je Node-code waarmee de server-side code is uitgelegd
+- [ ] Je hebt in de Readme bij 'Kenmerken' uitgelegd wat Progressive Enhancement is en hoe je dit hebt toegepast
+

@@ -1,0 +1,32 @@
+<%- include('./partials/head') %>
+
+    <main>
+        <div id="loading" class="loading-screen">
+            <img src="/static/img/frisbee.webp">
+        </div>
+        <div class="background-container">
+            <div class="main-grid">
+                <section class="title-bar">
+                    <%- include('./partials/gameTitle') %>
+                </section>
+                <section class="game-score">
+                    <%- include('./partials/gameScore') %>
+                </section>
+                <section class="panel player-list-1">
+                    <%- include('./partials/playerList1') %>
+                </section>
+                <section class="panel player-list-2">
+                    <%- include('./partials/playerList2') %>
+                </section>
+                <section class="score-list">
+                    <%- include('./partials/scoreList') %>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <aside>
+        <%- include('./partials/sidebar') %>
+    </aside>
+
+<%- include('./partials/foot') %>

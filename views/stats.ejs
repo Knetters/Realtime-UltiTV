@@ -1,0 +1,19 @@
+<%- include('./partials/head') %>
+
+    <main>
+        <section class="temp-container">
+            <form id="scoreForm" onsubmit="submitForm(event)">
+                <div class="inner-form">
+                  <label for="playerScored">Player Scored <span>*</span></label>
+                  <input type="text" id="playerScored" name="playerScored" placeholder="" required>
+                  <button type="submit" value="Submit">Submit</button>
+                </div>
+              </form>
+        </section>
+    </main>
+
+    <aside>
+        <%- include('./partials/sidebar') %>
+    </aside>
+
+<%- include('./partials/foot') %>

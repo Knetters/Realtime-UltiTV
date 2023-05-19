@@ -1,0 +1,168 @@
+<%- include('./partials/head') %>
+
+    <main>
+        <div id="loading" class="loading-screen">
+            <img src="/static/img/frisbee.webp">
+        </div>
+
+        <div class="background-container">
+            <div class="team-grid">
+                <div class="team-title">
+                    <h1>Configure teams</h1>
+                    <div class="filter-bar">
+                        <div class="filter-options">
+                            <p class="filter-title">Filter by:</p>
+                            <p class="filter-option bg-1">Name</p>
+                            <p class="filter-option bg-1">Ranking</p>
+                            <p class="filter-option bg-1">Team Size</p>
+                        </div>
+                        <div class="panel search-bar-container">
+                            <input type="text" placeholder="Search team">
+                        </div>
+                    </div>
+                </div>
+                <div class="panel team-list">
+                    <div class="team-header">
+                        <h4 class="team-players-title">Teams</h4>
+                        <div class="team-players-add-container">
+                            <p><span class="team-add-button"><i class="fa fa-plus" aria-hidden="true"></i> New team</span></p>
+                        </div>
+                    </div>
+                    <div class="teams-container scroll-container">
+                        <% for (var i = 0; i < 100; i++) { %>
+                            <article class="team-line flex-container-horizontal">
+                                <p class="team-line-id jersey-number"><%= data1.team1TeamId %>.</p>
+                                <p class="team-line-name"><%= data1.team1Name %></p>
+                                <p class="team-line-options">View</p>
+                            </article>
+                            <article class="team-line flex-container-horizontal">
+                                <p class="team-line-id jersey-number"><%= data1.team2TeamId %>.</p>
+                                <p class="team-line-name"><%= data1.team2Name %></p>
+                                <p class="team-line-options"><span>View</span></p>
+                            </article>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="panel team-info">
+                    <div class="flex-container-horizontal">
+                        <div class="team-info-box">
+                            <h2><%= data1.team1Name %></h2>
+                            <ul>
+                                <li>Team id: <%= data1.team1TeamId %></li>
+                                <li>Country: <%= data1.team1CountryName %> (<%= data1.team1CountryISO3Code %>)</li>
+                            </ul>
+                        </div>
+                        <div class="team-info-box conter-content">
+                            <span>Win-loss ratio:</span>
+                            <p>78%</p>
+                        </div>
+                        <div class="team-info-box conter-content">
+                            <span>Games won:</span>
+                            <p>14</p>
+                        </div>
+                        <div class="team-info-box conter-content">
+                            <span>Team size:</span>
+                            <% let numPlayers = data4.players.length %>
+                            <p><%= numPlayers %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel team-players">
+                    <article id="teamPlayers">
+                        <div class="team-header">
+                            <h4 class="team-players-title">Players</h4>
+                            <div class="team-players-add-container">
+                                <p><span id="add-player-button" class="team-player-add-button"><i class="fa fa-plus" aria-hidden="true"></i> New player</span></p>
+                            </div>
+                        </div>
+
+                        <%# Looped player list %>
+                        <div class="team-players-container scroll-container">
+                            <% data4.players.forEach(player => { %>
+                                <article id="<%= player.playerId %>" class="player-line">
+                                    <div class="player-info">
+                                        <p class="jersey-number"><%= player.jerseyNumber %>.</p>
+                                        <p class="player-text"><%= player.name %></p>
+                                        <p class="player-gender"><%= player.gender.length > 2 ? 'null' : player.gender %></p>
+                                    </div>
+                                    <div class="line"></div>
+                                </article>
+                            <% }) %>
+                        </div>
+                    </article>
+
+                    <article id="playerForm" class="player-form-container">
+                        <div class="team-header">
+                            <h4 class="team-players-title">Add player</h4>
+                            <div class="team-players-add-container">
+                                <p><span id="close-player-button" class="team-player-add-button"><i class="fa fa-times" aria-hidden="true"></i> Cancel</span></p>
+                            </div>
+                        </div>
+
+                        <%# New player form %>
+                        <form action="/newPlayer" method="POST" name="newPlayer">
+                            <div class="inner-form">
+                                <label for="name">Name <span>*</span></label>
+                                <input type="text" name="name" placeholder="" value="<%= locals.values?.name ?? '' %>" required>
+                            
+                                <label for="gender">gender <span>*</span></label>
+                                <input type="text" name="gender" placeholder="" value="<%= locals.values?.gender ?? '' %>" required>
+                            
+                                <label for="jerseynumber">jerseyNumber <span>*</span></label>
+                                <input type="number" min="1" max="99" name="jerseyNumber" placeholder="" value="<%= locals.values?.jerseyNumber ?? '' %>" required>
+
+                                <label for="image">Image</label>
+                                <input type="text" name="image" placeholder="" value="<%= locals.values?.image ?? '' %>">
+                            
+                                <label for="team">Team <span>*</span></label>
+                                <input type="text" name="team" placeholder="" value="<%= locals.values?.team ?? '' %>" required>
+
+                                <label for="question">Questions <span>*</span></label>
+                                <select name="question" required>
+                                    <option disabled selected></option>
+                                    <% data5.questions.forEach(question => { %>
+                                        <option value="<%= question.id %>"><%= question.title %></option>
+                                    <% }) %>
+
+                                </select>
+
+                                <label for="answer">Answer <span>*</span></label>
+                                <input  type="text" name="content" value="<%= locals.values?.content ?? ''%>" required>
+                            
+                                <button type="submit" value="Submit">Submit</button>
+                            </div>
+                        </form>
+                        
+                    </article>
+                </div>
+                <div class="panel team-details">
+                    <div class="team-club-container">
+                        <img class="team-club-image" loading="lazy" src="/static/img/empire_logo.webp">
+                    </div>
+                </div>
+                <div class="panel past-games">
+                    <h4>Game history</h4>
+                    <div class="scroll-container">
+                        <article class="win past-game flex-container-horizontal">
+                            <p class="past-game-name"><%= data1.field %> - <%= data1.gameStatus %></p>
+                            <p class="past-game-score">14-9</p>
+                        </article>
+                        <article class="win past-game flex-container-horizontal">
+                            <p class="past-game-name"><%= data1.field %> - <%= data1.gameStatus %></p>
+                            <p class="past-game-score">14-11</p>
+                        </article>
+                        <article class="loss past-game flex-container-horizontal">
+                            <p class="past-game-name"><%= data1.field %> - <%= data1.gameStatus %></p>
+                            <p class="past-game-score">10-14</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <aside>
+        <%- include('./partials/sidebar') %>
+    </aside>
+
+    <%- include('./partials/foot') %>

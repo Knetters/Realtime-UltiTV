@@ -1,33 +1,53 @@
-> _Fork_ deze leertaak en ga aan de slag. Onderstaande outline ga je gedurende deze taak in jouw eigen GitHub omgeving uitwerken. De instructie vind je in: [docs/INSTRUCTIONS.md](docs/INSTRUCTIONS.md)
+# Ulti.TV Commentators dashboard
+<img width="814" alt="image" src="https://github.com/Knetters/performance-matters-optimized-website/assets/112857190/c2eaa029-4fc5-4b41-ac16-b211000562a3">
+<img width="814" alt="image" src="https://github.com/Knetters/performance-matters-optimized-website/assets/112857190/de0db92f-1a7d-4b6e-b80a-7fef5ed44411">
 
-# Titel
-<!-- Geef je project een titel en schrijf in één zin wat het is -->
 
-## Inhoudsopgave
+<h3>📚Inhoudsopgave</h3>
+<ul>
+<li><a href="#Opdracht"> 👨🏼‍💼 Opdracht</a></li> 
+<li><a href="#Gebruik"> 👩🏽‍💻 Gebruik </a></li>  
+ <li><a href="#Installatie"> 🛠Installatie </a></li>
+<li><a href="#Kenmerken"> 📱 Kenmerken en uitleg Node, Express en EJS</a></li> 
+</ul>
 
-  * [Beschrijving](#beschrijving)
-  * [Gebruik](#gebruik)
-  * [Kenmerken](#kenmerken)
-  * [Installatie](#installatie)
-  * [Bronnen](#bronnen)
-  * [Licentie](#licentie)
+<h3 id="#Opdracht"> 👨🏼‍💼 Opdracht</h3>
+Ontwerp en maak met een team een website voor een opdrachtgever waarbij je verschillende performance technieken toepast.
 
-## Beschrijving
-<!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
-<!-- Voeg een mooie poster visual toe 📸 -->
-<!-- Voeg een link toe naar Github Pages 🌐-->
+        
+<h3 id="#Gebruik"> 👩🏽‍💻 Gebruik van website</h3>
 
-## Gebruik
-<!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
+<h3 id="Installatie"> 🛠Installatie</h3>
+<li>Clone deze repository.</li>
+<li>Open de repository in je code-editor</li>
+<li> Open de terminal en typ 'npm install'</li>
+<li>Door gebruik te maken van 'npm start', krijg je een lokale link waar je de code live kunt bekijken</li>
+<li>Om je project online te zetten, kun je gebruik maken van 'Cyclic'</li>
+        
+<h3 id="#Kenmerken"> 📱 Kenmerken</h3>
+Dit project is gemaakt met Node, Express, EJS. Wij hebben gebruik gemaakt van progressive enhancement. Deze aanpak begint met een eenvoudige, toegankelijke versie van de website die werkt op alle apparaten. 
+Hierna hebben wij meerdere geavanceerde functies en visuele elementen toegevoegd voor gebruikers die over modernere apparaten en browsers beschikken. 
+Hierdoor kan iedereen de inhoud van de website bekijken en gebruiken maar voor gebruikers met nieuwere apparaten zal de website meer functionaliteit hebben.
 
-## Kenmerken
-<!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
+<h4>Tools</h4>
+<ul>
+        <li> 🖥️ Visual Studio Code</li>
+        <li> 🖥️ Cyclic </li>
+        <li> 🖥️ Arc </li>
+</ul>
 
-## Installatie
-<!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
+<h4>Gebruikte technieken</h4>
+<ul>
+<li>📟 HTML</li>
+        <li>🎨 CSS</li>
+        <li>🕹️ JavaScript</li>
+        <li>🥜 Node </li>
+  </ul>      
 
-## Bronnen
+_Dit projects is gemaakt door Sanne, Thomas en Milan._
 
 ## Licentie
 
-This project is licensed under the terms of the [MIT license](./LICENSE).
+![GNU GPL V3](https://www.gnu.org/graphics/gplv3-127x51.png)
+
+This work is licensed under [GNU GPLv3](./LICENSE).
