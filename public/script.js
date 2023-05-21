@@ -65,7 +65,12 @@ socket.on("scoreUpdate", (score) => {
   const scoredByPlayerNames = document.getElementById("scoredByPlayerNames");
   const listItem = document.createElement("li");
   listItem.textContent = score;
-  scoredByPlayerNames.appendChild(listItem);
+
+  // Get the first child element of scoredByPlayerNames
+  const firstChild = scoredByPlayerNames.firstChild;
+
+  // Insert the new li element before the first child
+  scoredByPlayerNames.insertBefore(listItem, firstChild);
 });
 
 // Submit the form and emit the "playerScore" event

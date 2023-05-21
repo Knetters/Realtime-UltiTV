@@ -445,6 +445,7 @@ h4 {
 .score-message-block ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 /* Player list styling */
@@ -1266,6 +1267,21 @@ label span {
     width: 50%;
     margin-left: 25%;
     margin-top: 20%;
+}
+
+/* Styling scored player list */
+.scored-player-list {
+    width: 100%;
+    height: 10.5rem;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+  
+.scored-player-list li {
+    background-color: var(--c-mediumGray);
+    display: inline-block;
+    width: 100%;
+    height: 10.5rem;
 }
 
 /* Styling tablet vertial */
