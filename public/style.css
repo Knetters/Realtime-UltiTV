@@ -429,23 +429,9 @@ h4 {
 }
 
 .score-list-block {
-    flex: 5 1 auto;
+    flex: 21 1 auto;
     width: 100%;
     position: relative;
-}
-
-.score-message-block {
-    flex: 0 0 auto;
-    width: 100%;
-    flex-grow: 1;
-    position: relative;
-    height: 10rem;
-}
-
-.score-message-block ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
 /* Player list styling */
@@ -1270,18 +1256,40 @@ label span {
 }
 
 /* Styling scored player list */
+.score-message-block {
+    flex: 0 0 auto;
+    width: 100%;
+    flex-grow: 1;
+    position: relative;
+    height: 1rem;
+}
+
+.score-message-block:hover {
+    height: 10rem;
+}
+
+.score-message-block:hover .scored-player-list,.score-message-block:hover .scored-player-list li {
+    height: 9rem;
+}
+
+.score-message-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 .scored-player-list {
     width: 100%;
-    height: 10.5rem;
     overflow-x: auto;
     white-space: nowrap;
+    transition: .2s;
 }
   
 .scored-player-list li {
     background-color: var(--c-mediumGray);
     display: inline-block;
     width: 100%;
-    height: 10.5rem;
+    transition: .2s;
 }
 
 /* Styling tablet vertial */
