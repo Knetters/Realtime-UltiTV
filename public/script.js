@@ -1,3 +1,6 @@
+
+
+
 // darmode
 const darkButton = document.querySelector('.darkmode');
 const darkText = document.getElementById("darkmode-btn-text");
@@ -30,6 +33,8 @@ function toggleDarkMode() {
   }
 }
 
+
+
 // Tijd aftellen
 const timerContainer = document.getElementById("time-box-container")
 
@@ -59,6 +64,8 @@ if(timerContainer) {
 
 // Connect to the Socket.IO server
 const socket = io();
+
+
 
 // Listen for the "scoreUpdate" event and update the UI
 socket.on("scoreUpdate", (score) => {
@@ -125,6 +132,8 @@ if(addPlayerButton) {
     }
 }
 
+
+
 // Loading screen
 window.addEventListener('load', function () {
     const loadingPage = document.querySelector('#loading');
@@ -132,3 +141,8 @@ window.addEventListener('load', function () {
         loadingPage.style.display = 'none';
     }
 });
+
+
+
+const phase = new SplitType('.team-name-gsap', { types: 'words, chars' })
+

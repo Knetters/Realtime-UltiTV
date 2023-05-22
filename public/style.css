@@ -1262,7 +1262,7 @@ label span {
     flex-grow: 1;
     position: relative;
     height: max-content;
-    
+    overflow: hidden;
 }
 
 .score-message-block:hover {
