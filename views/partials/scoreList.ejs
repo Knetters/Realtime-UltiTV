@@ -1,10 +1,34 @@
 <div class="flex-container-vertical">
-    
+
     <!-- score message block -->
     <div id="score-message-block" class="panel score-message-block">
-        <ul class="scored-player-list" id="scoredByPlayerNames">
+
+        <div class="goal-header-container">
+        <p class="goal-scored">Goal!!!</p>
+        <p class="goal-time">46'</p>
+    </div>
+        <div class="line goal-line"></div>
+
+        <p class="team-name">Pretend team</p>
+        <div class="score-message-container">
+            <div class="left-side-message">
+                <p>O Kathryn McKay</p>
+                <p>O Jeff Fake</p>
+            </div>
+
+            <div class="right-side-message">
+                <p>Passes</p>
+                <div class="turnover-icon">Turnover</div>
+            </div>
+        </div>
+
+
+        <!-- <ul class="scored-player-list" id="scoredByPlayerNames">
+            <li >No goals yet</li>
+            <li >No goals yet</li>
             <li id="noGoalsYet">No goals yet</li>
-        </ul>
+
+        </ul> -->
     </div>
 
     <!-- Score list element -->
@@ -22,72 +46,157 @@
                     </thead>
                     <tbody>
 
-                        <%# Point item team 1 %> <%# Hier moet een if statement komen waar een verschil wordt gezien tussen de puntentelling. Wanneer een team een punt krijgt moet dat team een groene kleur krijgen in de tabel. Het andere team rood. Daarboven op moet de kleur aangepast worden aan de hand van de team1OorD. %>
-                        <% data2.scoredPoints.forEach(point => { %>
-                            <% if (point.scored === point.team1Name) { %>
-                                <% if (point.team1OorD === "O") { %>
-                                    <tr class="score-info-team-1">
-                                        <td><%= point.team1Passes %></td>
-                                        <td><%= point.team1Turnovers %></td>
-                                        <td><span class="dark-green"><%= point.team1OorD %></span></td>
-                                    </tr>
-                                <% } else {%>
-                                    <tr class="score-info-team-1">
-                                        <td><%= point.team1Passes %></td>
-                                        <td><%= point.team1Turnovers %></td>
-                                        <td><span class="green"><%= point.team1OorD %></span></td>
-                                    </tr>
-                                <% } %>
-                            <% } else { %>
-                                <% if (point.team1OorD === "D") { %>
-                                    <tr class="score-info-team-1">
-                                        <td><%= point.team1Passes %></td>
-                                        <td><%= point.team1Turnovers %></td>
-                                        <td><span class="dark-red"><%= point.team1OorD %></span></td>
-                                    </tr>
-                                <% } else {%>
-                                    <tr class="score-info-team-1">
-                                        <td><%= point.team1Passes %></td>
-                                        <td><%= point.team1Turnovers %></td>
-                                        <td><span class="red"><%= point.team1OorD %></span></td>
-                                    </tr>
-                                <% } %>
-                             <% } %>
-                        <% }) %>
+                        <%# Point item team 1 %>
+                            <%# Hier moet een if statement komen waar een verschil wordt gezien tussen de puntentelling.
+                                Wanneer een team een punt krijgt moet dat team een groene kleur krijgen in de tabel. Het
+                                andere team rood. Daarboven op moet de kleur aangepast worden aan de hand van de
+                                team1OorD. %>
+                                <% data2.scoredPoints.forEach(point=> { %>
+                                    <% if (point.scored===point.team1Name) { %>
+                                        <% if (point.team1OorD==="O" ) { %>
+                                            <tr class="score-info-team-1">
+                                                <td>
+                                                    <%= point.team1Passes %>
+                                                </td>
+                                                <td>
+                                                    <%= point.team1Turnovers %>
+                                                </td>
+                                                <td><span class="dark-green">
+                                                        <%= point.team1OorD %>
+                                                    </span></td>
+                                            </tr>
+                                            <% } else {%>
+                                                <tr class="score-info-team-1">
+                                                    <td>
+                                                        <%= point.team1Passes %>
+                                                    </td>
+                                                    <td>
+                                                        <%= point.team1Turnovers %>
+                                                    </td>
+                                                    <td><span class="green">
+                                                            <%= point.team1OorD %>
+                                                        </span></td>
+                                                </tr>
+                                                <% } %>
+                                                    <% } else { %>
+                                                        <% if (point.team1OorD==="D" ) { %>
+                                                            <tr class="score-info-team-1">
+                                                                <td>
+                                                                    <%= point.team1Passes %>
+                                                                </td>
+                                                                <td>
+                                                                    <%= point.team1Turnovers %>
+                                                                </td>
+                                                                <td><span class="dark-red">
+                                                                        <%= point.team1OorD %>
+                                                                    </span></td>
+                                                            </tr>
+                                                            <% } else {%>
+                                                                <tr class="score-info-team-1">
+                                                                    <td>
+                                                                        <%= point.team1Passes %>
+                                                                    </td>
+                                                                    <td>
+                                                                        <%= point.team1Turnovers %>
+                                                                    </td>
+                                                                    <td><span class="red">
+                                                                            <%= point.team1OorD %>
+                                                                        </span></td>
+                                                                </tr>
+                                                                <% } %>
+                                                                    <% } %>
+                                                                        <% }) %>
 
-                        <%# Score opvilling !!! ------------------------------------------------------------------- !!! %>
-                        <% data2.scoredPoints.forEach(point => { %>
-                            <% if (point.scored === point.team1Name) { %>
-                                <% if (point.team1OorD === "O") { %>
-                                    <tr class="score-info-team-1">
-                                        <td><%= point.team1Passes %></td>
-                                        <td><%= point.team1Turnovers %></td>
-                                        <td><span class="dark-green"><%= point.team1OorD %></span></td>
-                                    </tr>
-                                <% } else {%>
-                                    <tr class="score-info-team-1">
-                                        <td><%= point.team1Passes %></td>
-                                        <td><%= point.team1Turnovers %></td>
-                                        <td><span class="green"><%= point.team1OorD %></span></td>
-                                    </tr>
-                                <% } %>
-                            <% } else { %>
-                                <% if (point.team1OorD === "D") { %>
-                                    <tr class="score-info-team-1">
-                                        <td><%= point.team1Passes %></td>
-                                        <td><%= point.team1Turnovers %></td>
-                                        <td><span class="dark-red"><%= point.team1OorD %></span></td>
-                                    </tr>
-                                <% } else {%>
-                                    <tr class="score-info-team-1">
-                                        <td><%= point.team1Passes %></td>
-                                        <td><%= point.team1Turnovers %></td>
-                                        <td><span class="red"><%= point.team1OorD %></span></td>
-                                    </tr>
-                                <% } %>
-                             <% } %>
-                        <% }) %>
-                                
+                                                                            <%# Score opvilling !!!
+                                                                                -------------------------------------------------------------------
+                                                                                !!! %>
+                                                                                <% data2.scoredPoints.forEach(point=> {
+                                                                                    %>
+                                                                                    <% if
+                                                                                        (point.scored===point.team1Name)
+                                                                                        { %>
+                                                                                        <% if (point.team1OorD==="O" ) {
+                                                                                            %>
+                                                                                            <tr
+                                                                                                class="score-info-team-1">
+                                                                                                <td>
+                                                                                                    <%= point.team1Passes
+                                                                                                        %>
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <%= point.team1Turnovers
+                                                                                                        %>
+                                                                                                </td>
+                                                                                                <td><span
+                                                                                                        class="dark-green">
+                                                                                                        <%= point.team1OorD
+                                                                                                            %>
+                                                                                                    </span></td>
+                                                                                            </tr>
+                                                                                            <% } else {%>
+                                                                                                <tr
+                                                                                                    class="score-info-team-1">
+                                                                                                    <td>
+                                                                                                        <%= point.team1Passes
+                                                                                                            %>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <%= point.team1Turnovers
+                                                                                                            %>
+                                                                                                    </td>
+                                                                                                    <td><span
+                                                                                                            class="green">
+                                                                                                            <%= point.team1OorD
+                                                                                                                %>
+                                                                                                        </span></td>
+                                                                                                </tr>
+                                                                                                <% } %>
+                                                                                                    <% } else { %>
+                                                                                                        <% if
+                                                                                                            (point.team1OorD==="D"
+                                                                                                            ) { %>
+                                                                                                            <tr
+                                                                                                                class="score-info-team-1">
+                                                                                                                <td>
+                                                                                                                    <%= point.team1Passes
+                                                                                                                        %>
+                                                                                                                </td>
+                                                                                                                <td>
+                                                                                                                    <%= point.team1Turnovers
+                                                                                                                        %>
+                                                                                                                </td>
+                                                                                                                <td><span
+                                                                                                                        class="dark-red">
+                                                                                                                        <%= point.team1OorD
+                                                                                                                            %>
+                                                                                                                    </span>
+                                                                                                                </td>
+                                                                                                            </tr>
+                                                                                                            <% } else
+                                                                                                                {%>
+                                                                                                                <tr
+                                                                                                                    class="score-info-team-1">
+                                                                                                                    <td>
+                                                                                                                        <%= point.team1Passes
+                                                                                                                            %>
+                                                                                                                    </td>
+                                                                                                                    <td>
+                                                                                                                        <%= point.team1Turnovers
+                                                                                                                            %>
+                                                                                                                    </td>
+                                                                                                                    <td><span
+                                                                                                                            class="red">
+                                                                                                                            <%= point.team1OorD
+                                                                                                                                %>
+                                                                                                                        </span>
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                                <% } %>
+                                                                                                                    <% }
+                                                                                                                        %>
+                                                                                                                        <% })
+                                                                                                                            %>
+
                     </tbody>
                 </table>
             </div>
@@ -101,20 +210,25 @@
                     <tbody>
 
                         <%# Score %>
-                        <tr>
-                            <% data2.scoredPoints.forEach(point => { %>
-                                <tr>
-                                    <td><%= point.team1Score %> - <%= point.team2Score %></td>
-                                </tr>
+                            <tr>
+                                <% data2.scoredPoints.forEach(point=> { %>
+                            <tr>
+                                <td>
+                                    <%= point.team1Score %> - <%= point.team2Score %>
+                                </td>
+                            </tr>
                             <% }) %>
 
-                            <%# Score opvilling !!! ------------------------------------------------------------------- !!! %>
-                            <% data2.scoredPoints.forEach(point => { %>
-                                <tr>
-                                    <td><%= point.team1Score %> - <%= point.team2Score %></td>
-                                </tr>
-                            <% }) %>
-                        </tr>
+                                <%# Score opvilling !!!
+                                    ------------------------------------------------------------------- !!! %>
+                                    <% data2.scoredPoints.forEach(point=> { %>
+                                        <tr>
+                                            <td>
+                                                <%= point.team1Score %> - <%= point.team2Score %>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                            </tr>
                     </tbody>
                 </table>
             </div>
@@ -127,73 +241,146 @@
                             <th>PASS</th>
                         </tr>
                     </thead>
-                <tbody>
+                    <tbody>
 
-                    <%# Point item team 2 %> 
-                    <% data2.scoredPoints.forEach(point => { %>
-                        <% if (point.scored === point.team2Name) { %>
-                            <% if (point.team2OorD === "O") { %>
-                                <tr class="score-info-team-2">
-                                    <td><span class="dark-green"><%= point.team1OorD %></span></td>
-                                    <td><%= point.team2Turnovers %></td>
-                                    <td><%= point.team2Passes %></td>
-                                </tr>
-                            <% } else {%>
-                                <tr class="score-info-team-2">
-                                    <td><span class="green"><%= point.team1OorD %></span></td>
-                                    <td><%= point.team2Turnovers %></td>
-                                    <td><%= point.team2Passes  %></td>
-                                </tr>
-                            <% } %>
-                            <% } else { %>
-                                <% if (point.team2OorD === "D") { %>
-                                    <tr class="score-info-team-2">
-                                        <td><span class="dark-red"><%= point.team1OorD %></span></td>
-                                        <td><%= point.team2Turnovers %></td>
-                                        <td><%= point.team2Passes  %></td>
-                                    </tr>
-                                <% } else {%>
-                                    <tr class="score-info-team-2">
-                                        <td><span class="red"><%= point.team1OorD %></span></td>
-                                        <td><%= point.team2Turnovers %></td>
-                                        <td><%= point.team2Passes  %></td>
-                                    </tr>
-                                <% } %>
-                            <% } %>
-                        <% }) %>
+                        <%# Point item team 2 %>
+                            <% data2.scoredPoints.forEach(point=> { %>
+                                <% if (point.scored===point.team2Name) { %>
+                                    <% if (point.team2OorD==="O" ) { %>
+                                        <tr class="score-info-team-2">
+                                            <td><span class="dark-green">
+                                                    <%= point.team1OorD %>
+                                                </span></td>
+                                            <td>
+                                                <%= point.team2Turnovers %>
+                                            </td>
+                                            <td>
+                                                <%= point.team2Passes %>
+                                            </td>
+                                        </tr>
+                                        <% } else {%>
+                                            <tr class="score-info-team-2">
+                                                <td><span class="green">
+                                                        <%= point.team1OorD %>
+                                                    </span></td>
+                                                <td>
+                                                    <%= point.team2Turnovers %>
+                                                </td>
+                                                <td>
+                                                    <%= point.team2Passes %>
+                                                </td>
+                                            </tr>
+                                            <% } %>
+                                                <% } else { %>
+                                                    <% if (point.team2OorD==="D" ) { %>
+                                                        <tr class="score-info-team-2">
+                                                            <td><span class="dark-red">
+                                                                    <%= point.team1OorD %>
+                                                                </span></td>
+                                                            <td>
+                                                                <%= point.team2Turnovers %>
+                                                            </td>
+                                                            <td>
+                                                                <%= point.team2Passes %>
+                                                            </td>
+                                                        </tr>
+                                                        <% } else {%>
+                                                            <tr class="score-info-team-2">
+                                                                <td><span class="red">
+                                                                        <%= point.team1OorD %>
+                                                                    </span></td>
+                                                                <td>
+                                                                    <%= point.team2Turnovers %>
+                                                                </td>
+                                                                <td>
+                                                                    <%= point.team2Passes %>
+                                                                </td>
+                                                            </tr>
+                                                            <% } %>
+                                                                <% } %>
+                                                                    <% }) %>
 
-                        <%# Score opvilling !!! ------------------------------------------------------------------- !!! %>
-                        <% data2.scoredPoints.forEach(point => { %>
-                            <% if (point.scored === point.team2Name) { %>
-                                <% if (point.team2OorD === "O") { %>
-                                    <tr class="score-info-team-2">
-                                        <td><span class="dark-green"><%= point.team1OorD %></span></td>
-                                        <td><%= point.team2Turnovers %></td>
-                                        <td><%= point.team2Passes %></td>
-                                    </tr>
-                                <% } else {%>
-                                    <tr class="score-info-team-2">
-                                        <td><span class="green"><%= point.team1OorD %></span></td>
-                                        <td><%= point.team2Turnovers %></td>
-                                        <td><%= point.team2Passes  %></td>
-                                    </tr>
-                                <% } %>
-                                <% } else { %>
-                                    <% if (point.team2OorD === "D") { %>
-                                        <tr class="score-info-team-2">
-                                            <td><span class="dark-red"><%= point.team1OorD %></span></td>
-                                            <td><%= point.team2Turnovers %></td>
-                                            <td><%= point.team2Passes  %></td>
-                                        </tr>
-                                    <% } else {%>
-                                        <tr class="score-info-team-2">
-                                            <td><span class="red"><%= point.team1OorD %></span></td>
-                                            <td><%= point.team2Turnovers %></td>
-                                            <td><%= point.team2Passes  %></td>
-                                        </tr>
-                                    <% } %>
-                                <% } %>
-                            <% }) %>
+                                                                        <%# Score opvilling !!!
+                                                                            -------------------------------------------------------------------
+                                                                            !!! %>
+                                                                            <% data2.scoredPoints.forEach(point=> { %>
+                                                                                <% if (point.scored===point.team2Name) {
+                                                                                    %>
+                                                                                    <% if (point.team2OorD==="O" ) { %>
+                                                                                        <tr class="score-info-team-2">
+                                                                                            <td><span
+                                                                                                    class="dark-green">
+                                                                                                    <%= point.team1OorD
+                                                                                                        %>
+                                                                                                </span></td>
+                                                                                            <td>
+                                                                                                <%= point.team2Turnovers
+                                                                                                    %>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <%= point.team2Passes %>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <% } else {%>
+                                                                                            <tr
+                                                                                                class="score-info-team-2">
+                                                                                                <td><span class="green">
+                                                                                                        <%= point.team1OorD
+                                                                                                            %>
+                                                                                                    </span></td>
+                                                                                                <td>
+                                                                                                    <%= point.team2Turnovers
+                                                                                                        %>
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <%= point.team2Passes
+                                                                                                        %>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                            <% } %>
+                                                                                                <% } else { %>
+                                                                                                    <% if
+                                                                                                        (point.team2OorD==="D"
+                                                                                                        ) { %>
+                                                                                                        <tr
+                                                                                                            class="score-info-team-2">
+                                                                                                            <td><span
+                                                                                                                    class="dark-red">
+                                                                                                                    <%= point.team1OorD
+                                                                                                                        %>
+                                                                                                                </span>
+                                                                                                            </td>
+                                                                                                            <td>
+                                                                                                                <%= point.team2Turnovers
+                                                                                                                    %>
+                                                                                                            </td>
+                                                                                                            <td>
+                                                                                                                <%= point.team2Passes
+                                                                                                                    %>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                        <% } else {%>
+                                                                                                            <tr
+                                                                                                                class="score-info-team-2">
+                                                                                                                <td><span
+                                                                                                                        class="red">
+                                                                                                                        <%= point.team1OorD
+                                                                                                                            %>
+                                                                                                                    </span>
+                                                                                                                </td>
+                                                                                                                <td>
+                                                                                                                    <%= point.team2Turnovers
+                                                                                                                        %>
+                                                                                                                </td>
+                                                                                                                <td>
+                                                                                                                    <%= point.team2Passes
+                                                                                                                        %>
+                                                                                                                </td>
+                                                                                                            </tr>
+                                                                                                            <% } %>
+                                                                                                                <% } %>
+                                                                                                                    <% })
+                                                                                                                        %>
 
                     </tbody>
                 </table>

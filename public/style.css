@@ -1261,15 +1261,57 @@ label span {
     width: 100%;
     flex-grow: 1;
     position: relative;
-    height: 1rem;
+    height: max-content;
+    
 }
 
 .score-message-block:hover {
-    height: 10rem;
+    /* height: 10rem; */
 }
 
 .score-message-block:hover .scored-player-list,.score-message-block:hover .scored-player-list li {
     height: 9rem;
+}
+
+.score-message-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    line-height: 1.5em;
+}
+
+.right-side-message {
+    position: absolute;
+    margin-left: 50%;    
+
+}
+
+.goal-scored {
+    font-family: var(--secondairFont);
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--c-green);
+    font-size: large;
+    margin-bottom: 2%;
+}
+
+.goal-header-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.goal-time {
+    position: absolute;
+    right: 5%;
+}
+
+.goal-line {
+    margin-bottom: 2%;
+    border: .5px solid var(--c-darkGray);
+}
+
+.team-name {
+    font-weight: 700;
 }
 
 .score-message-block ul {
@@ -1279,16 +1321,12 @@ label span {
 }
 
 .scored-player-list {
-    width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
     transition: .2s;
 }
-  
+
 .scored-player-list li {
     background-color: var(--c-mediumGray);
     display: inline-block;
-    width: 100%;
     transition: .2s;
 }
 
