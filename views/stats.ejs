@@ -5,7 +5,11 @@
             <form id="scoreForm" onsubmit="submitForm(event)">
                 <div class="inner-form">
                   <label for="playerScored">Player Scored <span>*</span></label>
-                  <input type="text" id="playerScored" name="playerScored" placeholder="" required>
+                  <select id="playerScored" name="playerScored" required>
+                    <% data4.players.forEach(player => { %>
+                        <option value="<%= player.name %>"><%= player.name %></option>
+                    <% }) %>
+                  </select>
                   <button type="submit" value="Submit">Submit</button>
                 </div>
               </form>
