@@ -111,13 +111,22 @@ app.post('/newPlayer', async function (request, response) {
   response.redirect('/teams');
 });
 
+// Define an array to store the score history
+const scoreHistory = [];
+
 // Socket.IO logic
 io.on("connection", (socket) => {
-  console.log("A user connected!");
+  console.log("User connected");
+
+  // Send the score history to the newly connected client
+  socket.emit("scoreHistory", scoreHistory);
 
   // Listen for the player score event
   socket.on("playerScore", (score) => {
     console.log("Player score data:", score); // Log the data being sent
+
+    // Add the score to the score history array
+    scoreHistory.push(score);
 
     // Emit the player score to all connected clients
     io.emit("scoreUpdate", score);
@@ -125,7 +134,7 @@ io.on("connection", (socket) => {
 
   // Disconnect event
   socket.on("disconnect", () => {
-    console.log("A user disconnected!");
+    console.log("User disconnected");
   });
 });
 

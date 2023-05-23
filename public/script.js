@@ -99,9 +99,51 @@ socket.on("scoreUpdate", (data) => {
   }
 });
 
+// Listen for the "scoreHistory" event and update the UI with the score history
+socket.on("scoreHistory", (history) => {
+  const scoreMessageBlock = document.getElementById("score-message-block");
+
+  if (scoreMessageBlock) {
+    // Clear the existing contents of the score message block
+    // scoreMessageBlock.innerHTML = "";
+
+    // Iterate through the score history and append score message elements
+    history.forEach((scoreData) => {
+      const { team, score, assist, passes } = scoreData;
+
+      const newElement = document.createElement("div");
+      newElement.id = "score-message-element";
+      newElement.className = "score-message-element";
+      newElement.innerHTML = `
+        <div class="goal-header-container">
+          <p class="goal-scored">Goal!!!</p>
+          <p class="goal-time">46'</p>
+        </div>
+        <div class="line goal-line"></div>
+        <p class="team-name">${team}</p>
+        <div class="score-message-container">
+          <div class="left-side-message">
+            <p>O ${score}</p>
+            <p>O ${assist}</p>
+          </div>
+          <div class="right-side-message">
+            <p>Passes ${passes}</p>
+            <div class="turnover-icon">Turnover</div>
+          </div>
+        </div>
+      `;
+
+      scoreMessageBlock.appendChild(newElement);
+    });
+  } else {
+    console.error("Score message block not found.");
+  }
+});
+
 // Submit the form and emit the "playerScore" event
 function submitForm(event) {
   event.preventDefault();
+
   const teamScored = document.getElementById("teamScored").value;
   const playerScore = document.getElementById("playerScored").value;
   const playerAssist = document.getElementById("playerAssist").value;
