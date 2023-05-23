@@ -1262,11 +1262,11 @@ label span {
     overflow-x: auto;
     width: 100%;
     gap: var(--outerSpacing);
-  }
+}
   
 .score-message-element {
     flex: 0 0 auto;
-    height: 7rem;
+    height: 7.5rem;
     width: 100%;
 }
   
