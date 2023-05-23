@@ -1257,20 +1257,22 @@ label span {
 
 /* Styling scored player list */
 .score-message-block {
-    flex: 0 0 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
     width: 100%;
-    flex-grow: 1;
-    position: relative;
-    height: max-content;
-    
+    gap: var(--outerSpacing);
+  }
+  
+.score-message-element {
+    flex: 0 0 auto;
+    height: 7rem;
+    width: 100%;
 }
-
-.score-message-block:hover {
-    /* height: 10rem; */
-}
-
-.score-message-block:hover .scored-player-list,.score-message-block:hover .scored-player-list li {
-    height: 9rem;
+  
+  /* Optional: Hide horizontal scrollbar */
+.score-message-block::-webkit-scrollbar {
+    display: none;
 }
 
 .score-message-container {
