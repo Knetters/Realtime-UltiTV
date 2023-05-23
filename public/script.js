@@ -61,7 +61,12 @@ if(timerContainer) {
 const socket = io();
 
 // Listen for the "scoreUpdate" event and update the UI
-socket.on("scoreUpdate", (score) => {
+socket.on("scoreUpdate", (data) => {
+  const team = data.team;
+  const score = data.score;
+  const assist = data.assist;
+  const passes = data.passes;
+
   const scoreMessageBlock = document.getElementById("score-message-block");
 
   if (scoreMessageBlock) {
@@ -74,21 +79,21 @@ socket.on("scoreUpdate", (score) => {
         <p class="goal-time">46'</p>
       </div>
       <div class="line goal-line"></div>
-      <p class="team-name">Pretend team</p>
+      <p class="team-name">${team}</p>
       <div class="score-message-container">
         <div class="left-side-message">
           <p>O ${score}</p>
-          <p>O Jeff Fake</p>
+          <p>O ${assist}</p>
         </div>
         <div class="right-side-message">
-          <p>Passes</p>
+          <p>Passes ${passes}</p>
           <div class="turnover-icon">Turnover</div>
         </div>
       </div>
     `;
 
-    // Insert the new element into the scoreMessageBlock
-    scoreMessageBlock.appendChild(newElement);
+    // Insert the new element before the first child of scoreMessageBlock
+    scoreMessageBlock.insertBefore(newElement, scoreMessageBlock.firstChild);
   } else {
     console.error("Score message block not found.");
   }
@@ -97,12 +102,18 @@ socket.on("scoreUpdate", (score) => {
 // Submit the form and emit the "playerScore" event
 function submitForm(event) {
   event.preventDefault();
-
+  const teamScored = document.getElementById("teamScored").value;
   const playerScore = document.getElementById("playerScored").value;
-  socket.emit("playerScore", playerScore);
-  document.getElementById("playerScored").value = "";
-}
+  const playerAssist = document.getElementById("playerAssist").value;
+  const playerPasses = document.getElementById("playerPasses").value;
 
+  socket.emit("playerScore", { team: teamScored, score: playerScore, assist: playerAssist, passes: playerPasses });
+
+  document.getElementById("teamScored").value = "";
+  document.getElementById("playerScored").value = "";
+  document.getElementById("playerAssist").value = "";
+  document.getElementById("playerPasses").value = "";
+}
 
 // menu in en uitklappen
 const menuToggle = document.querySelector('.menu-toggle-button')
