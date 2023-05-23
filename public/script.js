@@ -62,15 +62,36 @@ const socket = io();
 
 // Listen for the "scoreUpdate" event and update the UI
 socket.on("scoreUpdate", (score) => {
-  const scoredByPlayerNames = document.getElementById("scoredByPlayerNames");
-  const listItem = document.createElement("li");
-  listItem.textContent = score;
+  const scoreMessageBlock = document.getElementById("score-message-block");
 
-  // Get the first child element of scoredByPlayerNames
-  const firstChild = scoredByPlayerNames.firstChild;
+  if (scoreMessageBlock) {
+    const newElement = document.createElement("div");
+    newElement.id = "score-message-element";
+    newElement.className = "score-message-element";
+    newElement.innerHTML = `
+      <div class="goal-header-container">
+        <p class="goal-scored">Goal!!!</p>
+        <p class="goal-time">46'</p>
+      </div>
+      <div class="line goal-line"></div>
+      <p class="team-name">Pretend team</p>
+      <div class="score-message-container">
+        <div class="left-side-message">
+          <p>O ${score}</p>
+          <p>O Jeff Fake</p>
+        </div>
+        <div class="right-side-message">
+          <p>Passes</p>
+          <div class="turnover-icon">Turnover</div>
+        </div>
+      </div>
+    `;
 
-  // Insert the new li element before the first child
-  scoredByPlayerNames.insertBefore(listItem, firstChild);
+    // Insert the new element into the scoreMessageBlock
+    scoreMessageBlock.appendChild(newElement);
+  } else {
+    console.error("Score message block not found.");
+  }
 });
 
 // Submit the form and emit the "playerScore" event
@@ -81,6 +102,7 @@ function submitForm(event) {
   socket.emit("playerScore", playerScore);
   document.getElementById("playerScored").value = "";
 }
+
 
 // menu in en uitklappen
 const menuToggle = document.querySelector('.menu-toggle-button')
