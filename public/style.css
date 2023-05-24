@@ -1259,17 +1259,22 @@ label span {
 .score-message-block {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto;
+    overflow: scroll;
     width: 100%;
     gap: var(--outerSpacing);
+    scroll-snap-type: x proximity;   
+     font-family: var(--secondairFont);
+     scroll-snap-align: start;
+
 }
-  
+
 .score-message-element {
     flex: 0 0 auto;
     height: 7.5rem;
     width: 100%;
+    overflow: scroll;
 }
-  
+
   /* Optional: Hide horizontal scrollbar */
 .score-message-block::-webkit-scrollbar {
     display: none;
@@ -1278,14 +1283,19 @@ label span {
 .score-message-container {
     display: flex;
     flex-direction: row;
-    width: 100%;
     line-height: 1.5em;
 }
 
+.left-side-message {
+    width: 70%;
+}
 .right-side-message {
-    position: absolute;
-    margin-left: 50%;    
+    margin-left: 5%;
+}
 
+.goals-scored {
+    display: flex;
+    flex-direction: row;
 }
 
 .goal-scored {
@@ -1298,6 +1308,7 @@ label span {
 }
 
 .goal-header-container {
+    position: relative;
     display: flex;
     flex-direction: row;
 }
@@ -1331,6 +1342,19 @@ label span {
     display: inline-block;
     transition: .2s;
 }
+
+.stats-icon {
+    height: 20px;
+    width: 20px;
+    border-radius: 3px;
+    background-color: var(--c-mediumGray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    margin-right: 4%;
+}
+
 
 /* Styling tablet vertial */
 @media only screen and (max-width: 1000px) {
