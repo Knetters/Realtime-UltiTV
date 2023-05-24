@@ -1,36 +1,55 @@
 <%- include('./partials/head') %>
 
     <main>
-        <section class="temp-container">
-            <form id="scoreForm" onsubmit="submitForm(event)">
-                <div class="inner-form">
-                  <label for="teamScored">Team scored <span>*</span></label>
-                  <input id="teamScored" name="teamScored" type="text" value="">
-
-                  <label for="playerScored">Scored by <span>*</span></label>
-                  <select id="playerScored" name="playerScored" required>
-                    <% data4.players.forEach(player => { %>
-                        <option value="<%= player.name %>"><%= player.name %></option>
-                    <% }) %>
-                  </select>
-
-                  <label for="playerAssist">Assisted by <span>*</span></label>
-                  <select id="playerAssist" name="playerAssist" required>
-                    <% data4.players.forEach(player => { %>
-                        <option value="<%= player.name %>"><%= player.name %></option>
-                    <% }) %>
-                  </select>
-
-                  <label for="playerPasses">Passes <span>*</span></label>
-                  <input id="playerPasses" name="playerPasses" type="number" value="">
-
-                  <label for="turnover">Turnover <span></span></label>
-                  <input id="turnover" name="turnover" type="checkbox" value="">
-
-                  <button type="submit" value="Submit">Submit</button>
-                </div>
-              </form>
-        </section>
+        <div id="loading" class="loading-screen">
+            <img src="/static/img/frisbee.webp">
+        </div>
+        <div class="background-container">
+            <div class="stats-grid">
+                <section class="game-score">
+                    <%- include('./partials/gameScore') %>
+                </section>
+                <section class="panel pass-field">
+                    <p>field</p>
+                </section>
+                <section class="panel score-form-1">
+                        <form id="scoreForm" onsubmit="submitForm(event)">
+                            <div class="inner-form">
+                              <label for="teamScored">Team scored <span>*</span></label>
+                              <input id="teamScored" name="teamScored" type="text" value="">
+            
+                              <label for="playerScored">Scored by <span>*</span></label>
+                              <select id="playerScored" name="playerScored" required>
+                                <% data4.players.forEach(player => { %>
+                                    <option value="<%= player.name %>"><%= player.name %></option>
+                                <% }) %>
+                              </select>
+            
+                              <label for="playerAssist">Assisted by <span>*</span></label>
+                              <select id="playerAssist" name="playerAssist" required>
+                                <% data4.players.forEach(player => { %>
+                                    <option value="<%= player.name %>"><%= player.name %></option>
+                                <% }) %>
+                              </select>
+            
+                              <label for="playerPasses">Passes <span>*</span></label>
+                              <input id="playerPasses" name="playerPasses" type="number" value="">
+            
+                              <label for="turnover">Turnover <span></span></label>
+                              <input id="turnover" name="turnover" type="checkbox" value="">
+            
+                              <button type="submit" value="Submit">Submit</button>
+                            </div>
+                          </form>
+                </section>
+                <section class="panel score-form-2">
+                    <p>leeg</p>
+                </section>
+                <section class="score-list-stats">
+                    <%- include('./partials/scoreList') %>
+                </section>
+            </div>
+        </div>
     </main>
 
     <aside>

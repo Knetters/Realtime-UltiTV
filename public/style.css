@@ -1355,6 +1355,49 @@ label span {
     margin-right: 4%;
 }
 
+/* stats grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1.1fr .8fr;
+    grid-template-rows: auto 1fr 1fr;
+    grid-auto-flow: row;
+    height: 100%;
+    border-radius: var(--outerSpacing);
+    padding: var(--outerSpacing);
+    gap: var(--outerSpacing);
+    background-color: var(--c-lightGray);
+    grid-template-areas:
+        "game-score game-score score-list-stats"
+        "pass-field pass-field score-list-stats"
+        "score-form-1 score-form-2 score-list-stats";
+}
+
+.game-score {
+    grid-area: game-score;
+    position: relative;
+}
+
+.pass-field {
+    grid-area: pass-field;
+}
+
+.score-form-1 {
+    grid-area: score-form-1;
+    position: relative;
+}
+
+.score-form-2 {
+    grid-area: score-form-2;
+    position: relative;
+}
+
+.score-list-stats {
+    grid-area: score-list-stats;
+}
+
+.score-list-stats .score-message-block {
+    display: none;
+}
 
 /* Styling tablet vertial */
 @media only screen and (max-width: 1000px) {
