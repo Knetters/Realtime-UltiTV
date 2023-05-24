@@ -51,8 +51,10 @@ if(timerContainer) {
         if (minutes < 10) { minutes = "0" + minutes; }
         if (seconds < 10) { seconds = "0" + seconds; }
 
+        const timerValue = minutes + ":" + seconds
+
         // Zet de minuten en seconden in de html
-        document.getElementById("timer").innerHTML = minutes + ":" + seconds
+        document.getElementById("timer").innerHTML = timerValue
 
         if (distance <= 0) {
             clearInterval(x)
@@ -65,14 +67,14 @@ if(timerContainer) {
 // Connect to the Socket.IO server
 const socket = io();
 
-
-
 // Listen for the "scoreUpdate" event and update the UI
 socket.on("scoreUpdate", (data) => {
   const team = data.team;
   const score = data.score;
   const assist = data.assist;
   const passes = data.passes;
+  const turnover = data.turnover;
+  const timeScored = data.timerValue;
 
   const scoreMessageBlock = document.getElementById("score-message-block");
 
@@ -83,7 +85,7 @@ socket.on("scoreUpdate", (data) => {
     newElement.innerHTML = `
       <div class="goal-header-container">
         <p class="goal-scored">Goal!!!</p>
-        <p class="goal-time">46'</p>
+        <p class="goal-time">${timeScored}</p>
       </div>
       <div class="line goal-line"></div>
       <p class="team-name">${team}</p>
@@ -94,7 +96,7 @@ socket.on("scoreUpdate", (data) => {
         </div>
         <div class="right-side-message">
           <p>Passes ${passes}</p>
-          <div class="turnover-icon">Turnover</div>
+          <div class="turnover-icon">Turnover ${turnover}</div>
         </div>
       </div>
     `;
@@ -116,7 +118,7 @@ socket.on("scoreHistory", (history) => {
 
     // Iterate through the score history and append score message elements
     history.forEach((scoreData) => {
-      const { team, score, assist, passes } = scoreData;
+      const { team, score, assist, passes, turnover, timeScored } = scoreData;
 
       const newElement = document.createElement("div");
       newElement.id = "score-message-element";
@@ -124,7 +126,7 @@ socket.on("scoreHistory", (history) => {
       newElement.innerHTML = `
         <div class="goal-header-container">
           <p class="goal-scored">Goal!!!</p>
-          <p class="goal-time">46'</p>
+          <p class="goal-time">${timeScored}</p>
         </div>
         <div class="line goal-line"></div>
         <p class="team-name">${team}</p>
@@ -135,7 +137,7 @@ socket.on("scoreHistory", (history) => {
           </div>
           <div class="right-side-message">
             <p>Passes ${passes}</p>
-            <div class="turnover-icon">Turnover</div>
+            <div class="turnover-icon">Turnover ${turnover}</div>
           </div>
         </div>
       `;
@@ -155,13 +157,15 @@ function submitForm(event) {
   const playerScore = document.getElementById("playerScored").value;
   const playerAssist = document.getElementById("playerAssist").value;
   const playerPasses = document.getElementById("playerPasses").value;
+  const turnover = document.getElementById("turnover").value;
 
-  socket.emit("playerScore", { team: teamScored, score: playerScore, assist: playerAssist, passes: playerPasses });
+  socket.emit("playerScore", { team: teamScored, score: playerScore, assist: playerAssist, passes: playerPasses, turnover: turnover});
 
   document.getElementById("teamScored").value = "";
   document.getElementById("playerScored").value = "";
   document.getElementById("playerAssist").value = "";
   document.getElementById("playerPasses").value = "";
+  document.getElementById("turnover").value = "";
 }
 
 // menu in en uitklappen

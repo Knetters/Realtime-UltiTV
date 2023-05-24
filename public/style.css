@@ -1336,7 +1336,7 @@ label span {
 .stats-grid {
     display: grid;
     grid-template-columns: 1.1fr 1.1fr .8fr;
-    grid-template-rows: auto 1fr 1fr;
+    grid-template-rows: auto 1fr 2fr;
     grid-auto-flow: row;
     height: 100%;
     border-radius: var(--outerSpacing);
@@ -1374,6 +1374,25 @@ label span {
 
 .score-list-stats .score-message-block {
     display: none;
+}
+
+.field-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: var(--innerSpacing);
+}
+
+.field-item {
+    flex-basis: calc(100% / 6 - 0.5rem);
+    height: 4rem; /* Adjust the height as needed */
+    box-shadow: var(--c-borderColor) 0px 0px 8px;
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+    border-radius: var(--innerSpacing);
+}
+
+.field-item:hover {
+    cursor: pointer;
 }
 
 /* Styling tablet vertial */

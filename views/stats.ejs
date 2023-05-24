@@ -10,7 +10,26 @@
                     <%- include('./partials/gameScore') %>
                 </section>
                 <section class="panel pass-field">
-                    <p>field</p>
+                    <div class="field-container">
+                        <div class="field-item"></div>
+                        <div class="field-item"></div>
+                        <div class="field-item"></div>
+                        <div class="field-item"></div>
+                        <div class="field-item"></div>
+                        <div class="field-item"></div>
+                        <div class="field-item"></div>
+                        <div class="field-item"></div>
+                        <div class="field-item"></div>
+                        <div class="field-item"></div>
+                        <div class="field-item"></div>
+                        <div class="field-item"></div>
+                        <div class="field-item"></div>
+                        <div class="field-item"></div>
+                        <div class="field-item"></div>
+                        <div class="field-item"></div>
+                        <div class="field-item"></div>
+                        <div class="field-item"></div>
+                    </div>
                 </section>
                 <section class="panel score-form-1">
                         <form id="scoreForm" onsubmit="submitForm(event)">
@@ -33,10 +52,10 @@
                               </select>
             
                               <label for="playerPasses">Passes <span>*</span></label>
-                              <input id="playerPasses" name="playerPasses" type="number" value="">
+                              <input id="playerPasses" name="playerPasses" type="number" value="" required>
             
                               <label for="turnover">Turnover <span></span></label>
-                              <input id="turnover" name="turnover" type="checkbox" value="">
+                              <input id="turnover" name="turnover" type="number" value="">
             
                               <button type="submit" value="Submit">Submit</button>
                             </div>
