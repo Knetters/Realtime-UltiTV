@@ -72,6 +72,12 @@ gridItems.forEach(gridItem => {
     const currentValue = Number(playerPassesInput.value) + 1;
     playerPassesInput.value = currentValue;
     gridItem.textContent = currentValue;
+
+    if (currentValue > 0) {
+      gridItem.classList.add('blue-border');
+    } else {
+      gridItem.classList.remove('blue-border');
+    }
   });
 });
 

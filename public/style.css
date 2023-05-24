@@ -1404,6 +1404,7 @@ label span {
     flex-wrap: wrap;
     width: 100%;
     gap: var(--innerSpacing);
+    margin-left: 3px;
 }
 
 .field-item {
@@ -1418,11 +1419,18 @@ label span {
     justify-content: center;
     text-align: center;
     font-weight: bold;
+    font-family: var(--secondairFont);
+    font-size: 2.5rem;
+    color: var(--c-blue);
 }
 
 .field-item:hover {
     cursor: pointer;
     border: var(--c-blue) solid 2px;
+}
+
+.grid-item.blue-border {
+    border: var(--c-blue) 2px solid;
 }
 
 .display-none {
