@@ -1425,6 +1425,10 @@ label span {
     border: var(--c-blue) solid 2px;
 }
 
+.display-none {
+    display: none;
+}
+
 /* Styling tablet vertial */
 @media only screen and (max-width: 1000px) {
 
