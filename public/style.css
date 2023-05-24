@@ -14,7 +14,7 @@
     --c-darkGray: #afb0af;
     --c-red: #D16950;
     --c-blue: #6f82ed;
-    --c-green: #89dc6b;
+    --c-green: #83CB69;
     --c-yellow: #F0C737;
     --c-dark: #252525;
 
@@ -1237,7 +1237,7 @@ label span {
         transform: rotate(360deg);
     }
 }
-  
+
 @keyframes spin {
     from {
         transform: rotate(0deg);
@@ -1262,9 +1262,9 @@ label span {
     overflow: scroll;
     width: 100%;
     gap: var(--outerSpacing);
-    scroll-snap-type: x proximity;   
-     font-family: var(--secondairFont);
-     scroll-snap-align: start;
+    scroll-snap-type: x proximity;
+    font-family: var(--secondairFont);
+    scroll-snap-align: start;
 
 }
 
@@ -1275,7 +1275,7 @@ label span {
     overflow: scroll;
 }
 
-  /* Optional: Hide horizontal scrollbar */
+/* Optional: Hide horizontal scrollbar */
 .score-message-block::-webkit-scrollbar {
     display: none;
 }
@@ -1289,6 +1289,7 @@ label span {
 .left-side-message {
     width: 70%;
 }
+
 .right-side-message {
     margin-left: 5%;
 }
@@ -1409,9 +1410,11 @@ label span {
 
 .field-item {
     flex-basis: calc(100% / 6 - 0.5rem);
-    height: 4rem; /* Adjust the height as needed */
+    height: 4rem;
+    /* Adjust the height as needed */
     box-shadow: var(--c-borderColor) 0px 0px 8px;
-    box-sizing: border-box; /* Include padding and border in the element's total width */
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width */
     border-radius: var(--innerSpacing);
     cursor: pointer;
     display: flex;
