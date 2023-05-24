@@ -1412,10 +1412,17 @@ label span {
     box-shadow: var(--c-borderColor) 0px 0px 8px;
     box-sizing: border-box; /* Include padding and border in the element's total width */
     border-radius: var(--innerSpacing);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
 }
 
 .field-item:hover {
     cursor: pointer;
+    border: var(--c-blue) solid 2px;
 }
 
 /* Styling tablet vertial */
