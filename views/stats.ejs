@@ -4,8 +4,29 @@
         <section class="temp-container">
             <form id="scoreForm" onsubmit="submitForm(event)">
                 <div class="inner-form">
-                  <label for="playerScored">Player Scored <span>*</span></label>
-                  <input type="text" id="playerScored" name="playerScored" placeholder="" required>
+                  <label for="teamScored">Team scored <span>*</span></label>
+                  <input id="teamScored" name="teamScored" type="text" value="">
+
+                  <label for="playerScored">Scored by <span>*</span></label>
+                  <select id="playerScored" name="playerScored" required>
+                    <% data4.players.forEach(player => { %>
+                        <option value="<%= player.name %>"><%= player.name %></option>
+                    <% }) %>
+                  </select>
+
+                  <label for="playerAssist">Assisted by <span>*</span></label>
+                  <select id="playerAssist" name="playerAssist" required>
+                    <% data4.players.forEach(player => { %>
+                        <option value="<%= player.name %>"><%= player.name %></option>
+                    <% }) %>
+                  </select>
+
+                  <label for="playerPasses">Passes <span>*</span></label>
+                  <input id="playerPasses" name="playerPasses" type="number" value="">
+
+                  <label for="turnover">Turnover <span></span></label>
+                  <input id="turnover" name="turnover" type="checkbox" value="">
+
                   <button type="submit" value="Submit">Submit</button>
                 </div>
               </form>
