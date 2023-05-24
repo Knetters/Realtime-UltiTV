@@ -14,11 +14,11 @@ gsap.from('.goal-time', {
     ease: "circ.out"
 })
 
-gsap.from('.char', {
-    x: 300,
-    stagger: 0.1,
-    delay: 0.2,
-    duration: .3,
-    ease: "power4.out",
-})
+// gsap.from('.char', {
+//     x: 300,
+//     stagger: 0.1,
+//     delay: 0.2,
+//     duration: .3,
+//     ease: "power4.out",
+// })
 
