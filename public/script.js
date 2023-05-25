@@ -1,6 +1,3 @@
-
-
-
 // darmode
 const darkButton = document.querySelector('.darkmode');
 const darkText = document.getElementById("darkmode-btn-text");
@@ -33,8 +30,6 @@ function toggleDarkMode() {
   }
 }
 
-
-
 // Tijd aftellen
 const timerContainer = document.getElementById("time-box-container")
 
@@ -63,23 +58,6 @@ if(timerContainer) {
 
     }, 1000)
 }
-
-const gridItems = document.querySelectorAll('.field-item');
-const playerPassesInput = document.getElementById('playerPasses');
-
-gridItems.forEach(gridItem => {
-  gridItem.addEventListener('click', () => {
-    const currentValue = Number(playerPassesInput.value) + 1;
-    playerPassesInput.value = currentValue;
-    gridItem.textContent = currentValue;
-
-    if (currentValue > 0) {
-      gridItem.classList.add('blue-border');
-    } else {
-      gridItem.classList.remove('blue-border');
-    }
-  });
-});
 
 // Connect to the Socket.IO server
 const socket = io();
@@ -239,8 +217,6 @@ if(addPlayerButton) {
     }
 }
 
-
-
 // Loading screen
 window.addEventListener('load', function () {
     const loadingPage = document.querySelector('#loading');
@@ -249,7 +225,38 @@ window.addEventListener('load', function () {
     }
 });
 
-
-
 const phase = new SplitType('.team-name-gsap', { types: 'words, chars' })
 
+// Player passes field input
+const gridItems = document.querySelectorAll('.field-item');
+const playerPassesInput = document.getElementById('playerPasses');
+const undoButton = document.getElementById('undoButton');
+const cancelButton = document.getElementById('cancelButton');
+let history = [];
+
+if(gridItems) {
+  gridItems.forEach((gridItem, index) => {
+    gridItem.addEventListener('click', () => {
+      const currentValue = Number(playerPassesInput.value) + 1;
+      playerPassesInput.value = currentValue;
+      gridItem.textContent = currentValue;
+      history.push({ index, value: currentValue });
+    });
+  });
+
+  undoButton.addEventListener('click', () => {
+    if (history.length > 0) {
+      const { index, value } = history.pop();
+      playerPassesInput.value = Number(playerPassesInput.value) - 1;
+      gridItems[index].textContent = '';
+    }
+  });
+
+  cancelButton.addEventListener('click', () => {
+    playerPassesInput.value = 0;
+    gridItems.forEach(gridItem => {
+      gridItem.textContent = '';
+    });
+    history = [];
+  });
+}

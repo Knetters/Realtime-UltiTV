@@ -1496,6 +1496,38 @@ label span {
     margin: var(--innerSpacing);
 }
 
+.form-row {
+    width: 100%;
+    display: flex;
+    border-bottom: solid 1px var(--c-mediumGray);
+    padding-bottom: .3rem;
+}
+
+.form-row h4 {
+    width: 50%;
+    color: var(--c-blue);
+}
+
+.form-button-row {
+    width: 50%;
+    text-align: right;
+}
+
+.form-button {
+    text-align: right;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: 0;
+    margin-left: var(--innerSpacing);
+    color: var(--c-darkGray);
+}
+
+.form-button:hover {
+    cursor: pointer;
+    color: var(--c-blue);
+}
+
 /* Styling tablet vertial */
 @media only screen and (max-width: 1000px) {
 
