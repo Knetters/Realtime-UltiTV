@@ -434,6 +434,16 @@ h4 {
     position: relative;
 }
 
+.team-1-stats {
+    height: 50%;
+    width: 100%;
+}
+
+.team-2-stats {
+    height: 50%;
+    width: 100%;
+}
+
 /* Player list styling */
 .team-name {
     color: var(--c-blue);
@@ -552,7 +562,7 @@ h4 {
 
 
 /* Score table styling */
-table {
+.score-list-block table {
     font-family: var(--secondairFont);
     text-align: center;
     margin-left: auto;
@@ -561,13 +571,13 @@ table {
     width: 100%;
 }
 
-th {
+.score-list-block th {
     font-weight: 400;
     padding-bottom: var(--outerSpacing);
     font-size: .6rem;
 }
 
-thead {
+.score-list-block thead {
     height: var(--outerSpacing);
 }
 
@@ -1360,7 +1370,7 @@ label span {
 .stats-grid {
     display: grid;
     grid-template-columns: 1.1fr 1.1fr .8fr;
-    grid-template-rows: auto 1fr 2fr;
+    grid-template-rows: auto 1fr 2.5fr;
     grid-auto-flow: row;
     height: 100%;
     border-radius: var(--outerSpacing);
@@ -1410,7 +1420,7 @@ label span {
 
 .field-item {
     flex-basis: calc(100% / 6 - 0.5rem);
-    height: 4rem;
+    height: 3rem;
     /* Adjust the height as needed */
     box-shadow: var(--c-borderColor) 0px 0px 8px;
     box-sizing: border-box;
@@ -1438,6 +1448,45 @@ label span {
 
 .display-none {
     display: none;
+}
+
+.score-form-2 thead {
+    text-align: left;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.small-letters {
+    text-transform: lowercase;
+}
+
+.score-form-2 h4 {
+    color: var(--c-blue);
+}
+
+.score-form-2 table {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.score-form-2 tr {
+    font-size: .9rem;
+    margin: 0;
+    padding: 0;
+}
+
+.score-form-2 td {
+    margin: 0;
+    padding-top: .2rem;
+    padding-bottom: .2rem;
+    border-top: solid 1px var(--c-mediumGray);
+}
+
+.score-form-2 span {
+    font-weight: 600;
 }
 
 /* Styling tablet vertial */
