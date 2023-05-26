@@ -1,224 +1,37 @@
 <div class="flex-container-vertical">
-  <!-- score message block -->
-  <div id="score-message-block" class="panel score-message-block">
+
+    <!-- score message block -->
+    <div id="score-message-block" class="panel score-message-block">
+
     <div id="score-message-element" class="score-message-element">
-      <div class="goal-header-container">
-        <p class="goal-scored">Goal!!!</p>
-        <p class="goal-time">46'</p>
-      </div>
-      <div class="line goal-line"></div>
-      <p class="team-name team-name-gsap">Pretend team</p>
-      <div class="score-message-container">
-        <div class="left-side-message">
-          <div class="goals-scored">
-            <img
-              class="goal-icon stats-icon"
-              src="/static/img/icon-05.svg"
-              alt="Goal icon"
-            />
-            <p>Katrina Gillis</p>
-          </div>
-          <div class="goals-scored">
-            <img
-              class="assist-icon stats-icon"
-              src="/static/img/icon-04.svg"
-              alt="Assist icon"
-            />
-            <p>Jeff Fake</p>
-          </div>
+        <div class="goal-header-container">
+            <p class="goal-scored">Goal!!!</p>
+            <p class="goal-time">46'</p>
         </div>
-        <div class="right-side-message">
-          <div class="goals-scored">
-            <img
-              class="passes-icon stats-icon"
-              src="/static/img/icon-06.svg"
-              alt="Passes icon"
-            />
-          </div>
-          <div class="goals-scored">
-            <img
-              class="turnover-icon stats-icon"
-              src="/static/img/icon-07.svg"
-              alt="turnover icon"
-            />
-          </div>
+        <div class="line goal-line"></div>
+
+        <p class="team-name team-name-gsap">Pretend team</p>
+        <div class="score-message-container">
+            <div class="left-side-message">
+                <div class="goals-scored">
+                    <img class="goal-icon stats-icon" src="/static/img/icon-05.svg" alt="Goal icon">
+                    <p>Katrina Gillis</p>        
+                        </div>
+                <div class="goals-scored">
+                    <img class="assist-icon stats-icon" src="/static/img/icon-04.svg" alt="Assist icon">
+                    <p>Jeff Fake</p> 
+                </div>
+            </div>
+
+            <div class="right-side-message">
+                <img class="passes-icon stats-icon" src="/static/img/icon-06.svg" alt="Passes icon">
+
+                <img class="turnover-icon stats-icon" src="/static/img/icon-07.svg" alt="turnover icon">
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-
-  <!-- Score list element -->
-  <div class="panel score-list-block">
-    <div class="score-list-container">
-      <div class="points-team-1">
-        <table cellspacing="0" cellpadding="0">
-          <thead>
-            <tr>
-              <th>PASS</th>
-              <th>TURN</th>
-              <th>o/d</th>
-            </tr>
-          </thead>
-          <tbody>
-            <%# Point item team 1 %> <%# Hier moet een if statement komen waar
-            een verschil wordt gezien tussen de puntentelling. Wanneer een team
-            een punt krijgt moet dat team een groene kleur krijgen in de tabel.
-            Het andere team rood. Daarboven op moet de kleur aangepast worden
-            aan de hand van de team1OorD. %> <%
-            data2.scoredPoints.forEach(point=> { %> <% if
-            (point.scored===point.team1Name) { %> <% if (point.team1OorD==="O" )
-            { %>
-            <tr class="score-info-team-1">
-              <td><%= point.team1Passes %></td>
-              <td><%= point.team1Turnovers %></td>
-              <td><span class="dark-green"> <%= point.team1OorD %> </span></td>
-            </tr>
-            <% } else {%>
-            <tr class="score-info-team-1">
-              <td><%= point.team1Passes %></td>
-              <td><%= point.team1Turnovers %></td>
-              <td><span class="green"> <%= point.team1OorD %> </span></td>
-            </tr>
-            <% } %> <% } else { %> <% if (point.team1OorD==="D" ) { %>
-            <tr class="score-info-team-1">
-              <td><%= point.team1Passes %></td>
-              <td><%= point.team1Turnovers %></td>
-              <td><span class="dark-red"> <%= point.team1OorD %> </span></td>
-            </tr>
-            <% } else {%>
-            <tr class="score-info-team-1">
-              <td><%= point.team1Passes %></td>
-              <td><%= point.team1Turnovers %></td>
-              <td><span class="red"> <%= point.team1OorD %> </span></td>
-            </tr>
-            <% } %> <% } %> <% }) %> <%# Score opvilling !!!
-            -------------------------------------------------------------------
-            !!! %> <% data2.scoredPoints.forEach(point=> { %> <% if
-            (point.scored===point.team1Name) { %> <% if (point.team1OorD==="O" )
-            { %>
-            <tr class="score-info-team-1">
-              <td><%= point.team1Passes %></td>
-              <td><%= point.team1Turnovers %></td>
-              <td><span class="dark-green"> <%= point.team1OorD %> </span></td>
-            </tr>
-            <% } else {%>
-            <tr class="score-info-team-1">
-              <td><%= point.team1Passes %></td>
-              <td><%= point.team1Turnovers %></td>
-              <td><span class="green"> <%= point.team1OorD %> </span></td>
-            </tr>
-            <% } %> <% } else { %> <% if (point.team1OorD==="D" ) { %>
-            <tr class="score-info-team-1">
-              <td><%= point.team1Passes %></td>
-              <td><%= point.team1Turnovers %></td>
-              <td><span class="dark-red"> <%= point.team1OorD %> </span></td>
-            </tr>
-            <% } else {%>
-            <tr class="score-info-team-1">
-              <td><%= point.team1Passes %></td>
-              <td><%= point.team1Turnovers %></td>
-              <td><span class="red"> <%= point.team1OorD %> </span></td>
-            </tr>
-            <% } %> <% } %> <% }) %>
-          </tbody>
-        </table>
-      </div>
-      <div class="score-points">
-        <table cellspacing="0" cellpadding="0">
-          <thead>
-            <tr>
-              <th class="extra-margin-table"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <%# Score %>
-            <tr>
-              <% data2.scoredPoints.forEach(point=> { %>
-            </tr>
-
-            <tr>
-              <td><%= point.team1Score %> - <%= point.team2Score %></td>
-            </tr>
-            <% }) %> <%# Score opvilling !!!
-            -------------------------------------------------------------------
-            !!! %> <% data2.scoredPoints.forEach(point=> { %>
-            <tr>
-              <td><%= point.team1Score %> - <%= point.team2Score %></td>
-            </tr>
-            <% }) %>
-          </tbody>
-        </table>
-      </div>
-      <div class="points-team-2">
-        <table cellspacing="0" cellpadding="0" class="right">
-          <thead>
-            <tr>
-              <th>o/d</th>
-              <th>TURN</th>
-              <th>PASS</th>
-            </tr>
-          </thead>
-          <tbody>
-            <%# Point item team 2 %> <% data2.scoredPoints.forEach(point=> { %>
-            <% if (point.scored===point.team2Name) { %> <% if
-            (point.team2OorD==="O" ) { %>
-            <tr class="score-info-team-2">
-              <td><span class="dark-green"> <%= point.team1OorD %> </span></td>
-              <td><%= point.team2Turnovers %></td>
-              <td><%= point.team2Passes %></td>
-            </tr>
-            <% } else {%>
-            <tr class="score-info-team-2">
-              <td><span class="green"> <%= point.team1OorD %> </span></td>
-              <td><%= point.team2Turnovers %></td>
-              <td><%= point.team2Passes %></td>
-            </tr>
-            <% } %> <% } else { %> <% if (point.team2OorD==="D" ) { %>
-            <tr class="score-info-team-2">
-              <td><span class="dark-red"> <%= point.team1OorD %> </span></td>
-              <td><%= point.team2Turnovers %></td>
-              <td><%= point.team2Passes %></td>
-            </tr>
-            <% } else {%>
-            <tr class="score-info-team-2">
-              <td><span class="red"> <%= point.team1OorD %> </span></td>
-              <td><%= point.team2Turnovers %></td>
-              <td><%= point.team2Passes %></td>
-            </tr>
-            <% } %> <% } %> <% }) %> <%# Score opvilling !!!
-            -------------------------------------------------------------------
-            !!! %> <% data2.scoredPoints.forEach(point=> { %> <% if
-            (point.scored===point.team2Name) { %> <% if (point.team2OorD==="O" )
-            { %>
-            <tr class="score-info-team-2">
-              <td><span class="dark-green"> <%= point.team1OorD %> </span></td>
-              <td><%= point.team2Turnovers %></td>
-              <td><%= point.team2Passes %></td>
-            </tr>
-            <% } else {%>
-            <tr class="score-info-team-2">
-              <td><span class="green"> <%= point.team1OorD %> </span></td>
-              <td><%= point.team2Turnovers %></td>
-              <td><%= point.team2Passes %></td>
-            </tr>
-            <% } %> <% } else { %> <% if (point.team2OorD==="D" ) { %>
-            <tr class="score-info-team-2">
-              <td><span class="dark-red"> <%= point.team1OorD %> </span></td>
-              <td><%= point.team2Turnovers %></td>
-              <td><%= point.team2Passes %></td>
-            </tr>
-            <% } else {%>
-            <tr class="score-info-team-2">
-              <td><span class="red"> <%= point.team1OorD %> </span></td>
-              <td><%= point.team2Turnovers %></td>
-              <td><%= point.team2Passes %></td>
-            </tr>
-            <% } %> <% } %> <% }) %>
-          </tbody>
-        </table>
-      </div>
+        
     </div>
-<<<<<<< Updated upstream
 
     <!-- Score list element -->
     <div class="panel score-list-block">
@@ -577,7 +390,3 @@
         </div>
     </div>
 </div>
-=======
-  </div>
-</div>
->>>>>>> Stashed changes
