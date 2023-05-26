@@ -1,174 +1,196 @@
 <%- include('./partials/head') %>
 
-    <main>
-        <div id="loading" class="loading-screen">
-            <img src="/static/img/frisbee.webp">
-        </div>
-        <div class="background-container">
-            <div class="stats-grid">
-                <section class="game-score">
-                    <%- include('./partials/gameScore') %>
-                </section>
-                <section class="panel pass-field">
-                    <div class="field-container">
-                        <div class="field-item"></div>
-                        <div class="field-item"></div>
-                        <div class="field-item"></div>
-                        <div class="field-item"></div>
-                        <div class="field-item"></div>
-                        <div class="field-item"></div>
-                        <div class="field-item"></div>
-                        <div class="field-item"></div>
-                        <div class="field-item"></div>
-                        <div class="field-item"></div>
-                        <div class="field-item"></div>
-                        <div class="field-item"></div>
-                        <div class="field-item"></div>
-                        <div class="field-item"></div>
-                        <div class="field-item"></div>
-                        <div class="field-item"></div>
-                        <div class="field-item"></div>
-                        <div class="field-item"></div>
-                    </div>
-                </section>
-                <section class="panel score-form-1">
+  <main>
+    <div id="loading" class="loading-screen">
+      <img src="/static/img/frisbee.webp">
+    </div>
+    <div class="background-container">
+      <div class="stats-grid">
+        <section class="game-score">
+          <%- include('./partials/gameScore') %>
+        </section>
+        <section class="panel pass-field">
 
-                    <div class="form-row">
-                        <h4>Score Form</h4>
-                        <div class="form-button-row">
-                            <button id="undoButton" class="form-button"><i class="fa fa-undo" aria-hidden="true"></i> Undo</button>
-                            <button id="cancelButton" class="form-button"><i class="fa fa-trash" aria-hidden="true"></i> Cancel</button>
-                        </div>
-                    </div>
-
-                        <form id="scoreForm" onsubmit="submitForm(event)">
-                            <div class="inner-form">
-                              <label for="teamScored">Team scored <span>*</span></label>
-                              <input id="teamScored" name="teamScored" type="text" value="">
-            
-                              <label for="playerScored">Scored by <span>*</span></label>
-                              <select id="playerScored" name="playerScored" required>
-                                <% data4.players.forEach(player => { %>
-                                    <option value="<%= player.name %>"><%= player.name %></option>
-                                <% }) %>
-                              </select>
-            
-                              <label for="playerAssist">Assisted by <span>*</span></label>
-                              <select id="playerAssist" name="playerAssist" required>
-                                <% data4.players.forEach(player => { %>
-                                    <option value="<%= player.name %>"><%= player.name %></option>
-                                <% }) %>
-                              </select>
-            
-                              <label class="display-none" for="playerPasses">Passes <span>*</span></label>
-                              <input class="display-none" id="playerPasses" name="playerPasses" type="number" value="" required>
-            
-                              <label for="turnover">Turnover <span></span></label>
-                              <input id="turnover" name="turnover" type="number" value="">
-            
-                              <button class="submit-button-stats" type="submit" value="Submit">Submit</button>
-                            </div>
-                          </form>
-                </section>
-                <section class="score-form-2">
-                    <div class="flex-container-vertical">
-                        <div class="panel team-1-stats">
-                            <table>
-                                <thead>
-                                  <tr>
-                                    <th><h4>Fakers</h4></th>
-                                    <th><h4 class="small-letters">o</h4></th>
-                                    <th class="align-right"><h4 class="small-letters">d</h4></th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>Breaks</td>
-                                    <td></td>
-                                    <td class="align-right"><span>33%</span> 1/3</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Broken</td>
-                                    <td><span>33%</span> 1/3</td>
-                                    <td class="align-right"></td>
-                                  </tr>
-                                  <tr>
-                                    <td>Conversions</td>
-                                    <td><span>66%</span> 2/3</td>
-                                    <td class="align-right"><span>100%</span> 3/3</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Perfect conversions</td>
-                                    <td><span>66%</span> 2/3</td>
-                                    <td class="align-right"><span>66%</span> 2/3</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Recovered points</td>
-                                    <td><span>0%</span> 0/1</td>
-                                    <td class="align-right"><span>100%</span> 1/1</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Successful D ponts</td>
-                                    <td></td>
-                                    <td class="align-right"><span>33%</span> 1/3</td>
-                                  </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="panel team-2-stats">
-                            <table>
-                                <thead>
-                                  <tr>
-                                    <th><h4>Pretend Team</h4></th>
-                                    <th><h4 class="small-letters">o</h4></th>
-                                    <th class="align-right"><h4 class="small-letters">d</h4></th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>Breaks</td>
-                                    <td></td>
-                                    <td class="align-right"><span>25%</span> 1/4</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Broken</td>
-                                    <td><span>50%</span> 3/6</td>
-                                    <td class="align-right"></td>
-                                  </tr>
-                                  <tr>
-                                    <td>Conversions</td>
-                                    <td><span>50%</span> 3/6</td>
-                                    <td class="align-right"><span>100%</span> 1/1</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Perfect conversions</td>
-                                    <td><span>33%</span> 1/3</td>
-                                    <td class="align-right"><span>100%</span> 1/1</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Recovered points</td>
-                                    <td><span>0%</span> 0/1</td>
-                                    <td class="align-right"><span>100%</span> 1/1</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Successful D ponts</td>
-                                    <td></td>
-                                    <td class="align-right"><span>60%</span> 3/5</td>
-                                  </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </section>
-                <section class="score-list-stats">
-                    <%- include('./partials/scoreList') %>
-                </section>
+          <div class="passes-row">
+            <h4>Passes</h4>
+            <div class="form-button-row">
+              <button id="undoButton" class="form-button"><i class="fa fa-undo" aria-hidden="true"></i> Undo</button>
+              <button id="cancelButton" class="form-button"><i class="fa fa-trash" aria-hidden="true"></i>
+                Cancel</button>
             </div>
-        </div>
-    </main>
+          </div>
 
-    <aside>
-        <%- include('./partials/sidebar') %>
-    </aside>
+          <div class="field-container">
+            <div class="field-item"></div>
+            <div class="field-item"></div>
+            <div class="field-item"></div>
+            <div class="field-item"></div>
+            <div class="field-item"></div>
+            <div class="field-item"></div>
+            <div class="field-item"></div>
+            <div class="field-item"></div>
+            <div class="field-item"></div>
+            <div class="field-item"></div>
+            <div class="field-item"></div>
+            <div class="field-item"></div>
+            <div class="field-item"></div>
+            <div class="field-item"></div>
+            <div class="field-item"></div>
+            <div class="field-item"></div>
+            <div class="field-item"></div>
+            <div class="field-item"></div>
+          </div>
+        </section>
+        <section class="panel score-form-1">
 
-<%- include('./partials/foot') %>
+          <div class="form-row">
+            <h4>Score Form</h4>
+          </div>
+
+          <form id="scoreForm" onsubmit="submitForm(event)">
+            <div class="inner-form">
+              <label for="teamScored">Team scored <span>*</span></label>
+              <input id="teamScored" name="teamScored" type="text" value="">
+
+              <label for="playerScored">Scored by <span>*</span></label>
+              <select id="playerScored" name="playerScored" required>
+                <% data4.players.forEach(player=> { %>
+                  <option value="<%= player.name %>">
+                    <%= player.name %>
+                  </option>
+                  <% }) %>
+              </select>
+
+              <label for="playerAssist">Assisted by <span>*</span></label>
+              <select id="playerAssist" name="playerAssist" required>
+                <% data4.players.forEach(player=> { %>
+                  <option value="<%= player.name %>">
+                    <%= player.name %>
+                  </option>
+                  <% }) %>
+              </select>
+
+              <label class="display-none" for="playerPasses">Passes <span>*</span></label>
+              <input class="display-none" id="playerPasses" name="playerPasses" type="number" value="" required>
+
+              <label for="turnover">Turnover <span></span></label>
+              <input id="turnover" name="turnover" type="number" value="">
+
+              <button class="submit-button-stats" type="submit" value="Submit">Submit</button>
+            </div>
+          </form>
+        </section>
+        <section class="score-form-2">
+          <div class="flex-container-vertical">
+            <div class="panel team-1-stats">
+              <table>
+                <thead>
+                  <tr>
+                    <th>
+                      <h4>Fakers</h4>
+                    </th>
+                    <th>
+                      <h4 class="small-letters">o</h4>
+                    </th>
+                    <th class="align-right">
+                      <h4 class="small-letters">d</h4>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Breaks</td>
+                    <td></td>
+                    <td class="align-right"><span>33%</span> 1/3</td>
+                  </tr>
+                  <tr>
+                    <td>Broken</td>
+                    <td><span>33%</span> 1/3</td>
+                    <td class="align-right"></td>
+                  </tr>
+                  <tr>
+                    <td>Conversions</td>
+                    <td><span>66%</span> 2/3</td>
+                    <td class="align-right"><span>100%</span> 3/3</td>
+                  </tr>
+                  <tr>
+                    <td>Perfect conversions</td>
+                    <td><span>66%</span> 2/3</td>
+                    <td class="align-right"><span>66%</span> 2/3</td>
+                  </tr>
+                  <tr>
+                    <td>Recovered points</td>
+                    <td><span>0%</span> 0/1</td>
+                    <td class="align-right"><span>100%</span> 1/1</td>
+                  </tr>
+                  <tr>
+                    <td>Successful D ponts</td>
+                    <td></td>
+                    <td class="align-right"><span>33%</span> 1/3</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="panel team-2-stats">
+              <table>
+                <thead>
+                  <tr>
+                    <th>
+                      <h4>Pretend Team</h4>
+                    </th>
+                    <th>
+                      <h4 class="small-letters">o</h4>
+                    </th>
+                    <th class="align-right">
+                      <h4 class="small-letters">d</h4>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Breaks</td>
+                    <td></td>
+                    <td class="align-right"><span>25%</span> 1/4</td>
+                  </tr>
+                  <tr>
+                    <td>Broken</td>
+                    <td><span>50%</span> 3/6</td>
+                    <td class="align-right"></td>
+                  </tr>
+                  <tr>
+                    <td>Conversions</td>
+                    <td><span>50%</span> 3/6</td>
+                    <td class="align-right"><span>100%</span> 1/1</td>
+                  </tr>
+                  <tr>
+                    <td>Perfect conversions</td>
+                    <td><span>33%</span> 1/3</td>
+                    <td class="align-right"><span>100%</span> 1/1</td>
+                  </tr>
+                  <tr>
+                    <td>Recovered points</td>
+                    <td><span>0%</span> 0/1</td>
+                    <td class="align-right"><span>100%</span> 1/1</td>
+                  </tr>
+                  <tr>
+                    <td>Successful D ponts</td>
+                    <td></td>
+                    <td class="align-right"><span>60%</span> 3/5</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <section class="score-list-stats">
+          <%- include('./partials/scoreList') %>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <aside>
+    <%- include('./partials/sidebar') %>
+  </aside>
+
+  <%- include('./partials/foot') %>

@@ -1275,6 +1275,9 @@ label span {
     scroll-snap-type: x proximity;
     font-family: var(--secondairFont);
     scroll-snap-align: start;
+    scroll-snap-type: x proximity;
+    font-family: var(--secondairFont);
+    scroll-snap-align: start;
 
 }
 
@@ -1370,7 +1373,7 @@ label span {
 .stats-grid {
     display: grid;
     grid-template-columns: 1.1fr 1.1fr .8fr;
-    grid-template-rows: auto 1fr 2.5fr;
+    grid-template-rows: auto 1.1fr 2.5fr;
     grid-auto-flow: row;
     height: 100%;
     border-radius: var(--outerSpacing);
@@ -1416,6 +1419,7 @@ label span {
     width: 100%;
     gap: var(--innerSpacing);
     margin-left: 3px;
+    /* margin-top: 0.3rem; */
 }
 
 .field-item {
@@ -1500,6 +1504,7 @@ label span {
     width: 100%;
     display: flex;
     border-bottom: solid 1px var(--c-mediumGray);
+    padding-left: var(--innerSpacing);
     padding-bottom: .3rem;
 }
 
@@ -1508,8 +1513,21 @@ label span {
     color: var(--c-blue);
 }
 
-.form-button-row {
+.passes-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-left: var(--innerSpacing);
+    padding-right: var(--innerSpacing);
+    padding-bottom: .5rem;
+}
+
+.passes-row h4 {
     width: 50%;
+    color: var(--c-blue);
+}
+
+.form-button-row {
     text-align: right;
 }
 
@@ -1526,6 +1544,10 @@ label span {
 .form-button:hover {
     cursor: pointer;
     color: var(--c-blue);
+}
+
+.inner-form {
+    padding: var(--innerSpacing);
 }
 
 /* Styling tablet vertial */
