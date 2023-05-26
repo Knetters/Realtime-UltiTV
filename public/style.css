@@ -1189,10 +1189,13 @@ form {
 
 form button {
     padding: var(--innerSpacing) var(--outerSpacing);
+    margin-bottom: 1rem;
     border: none;
     background-color: #6f82ed;
     border-radius: var(--innerSpacing);
     color: var(--c-white);
+    font-family: var(--primaryFont);
+    text-transform: uppercase;
     transition: .2s;
 }
 
@@ -1201,7 +1204,10 @@ form button:hover {
 }
 
 label {
-    font-size: .8rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-family: var(--secondairFont);
+    color: var(--c-dark);
 }
 
 input,
@@ -1213,7 +1219,8 @@ select {
     padding: var(--innerSpacing) 0;
     margin-bottom: var(--innerSpacing);
     background-color: var(--c-whiteColumns);
-    color: var(--c-dark)
+    color: var(--c-dark);
+    font-family: var(--primaryFont);
 }
 
 input:focus,
@@ -1495,8 +1502,8 @@ label span {
 
 .submit-button-stats {
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 1rem;
+    left: 0.5rem;
     margin: var(--innerSpacing);
 }
 
@@ -1541,6 +1548,10 @@ label span {
 .form-button:hover {
     cursor: pointer;
     color: var(--c-blue);
+}
+
+.inner-form {
+    margin-top: 1rem;
 }
 
 /* Styling tablet vertial */
