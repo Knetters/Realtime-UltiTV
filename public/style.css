@@ -608,11 +608,11 @@ h4 {
     font-weight: 600;
 }
 
-td {
+.score-list-block td {
     padding-bottom: 0.6rem;
 }
 
-td span {
+.score-list-block td span {
     padding: .1rem .4rem;
     border-radius: .3rem;
     font-size: .8rem;

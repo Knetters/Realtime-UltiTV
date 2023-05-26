@@ -69,7 +69,7 @@ socket.on("scoreUpdate", (data) => {
   const assist = data.assist;
   const passes = data.passes;
   const turnover = data.turnover;
-  const timeScored = data.timerValue;
+  const timeScored = document.getElementById("timer").innerHTML;
 
   const scoreMessageBlock = document.getElementById("score-message-block");
 
@@ -80,7 +80,7 @@ socket.on("scoreUpdate", (data) => {
     newElement.innerHTML = `
     <div class="goal-header-container">
       <p class="goal-scored">Goal!!!</p>
-      <p class="goal-time">46'</p>
+      <p class="goal-time">${timeScored}</p>
     </div>
     <div class="line goal-line"></div>
 
@@ -232,27 +232,30 @@ const gridItems = document.querySelectorAll('.field-item');
 const playerPassesInput = document.getElementById('playerPasses');
 const undoButton = document.getElementById('undoButton');
 const cancelButton = document.getElementById('cancelButton');
+let clickCount = 0;
 let history = [];
 
 if (gridItems) {
   gridItems.forEach((gridItem, index) => {
     gridItem.addEventListener('click', () => {
-      let currentValue = Number(playerPassesInput.value);
-      gridItem.textContent = currentValue;
-      playerPassesInput.value = currentValue + 1;
-      history.push({ index, value: currentValue });
+      clickCount++;
+      gridItem.textContent = clickCount - 1;
+      playerPassesInput.value = clickCount - 1;
+      history.push({ index, value: clickCount - 1 });
     });
   });
 
   undoButton.addEventListener('click', () => {
     if (history.length > 0) {
       const { index, value } = history.pop();
-      playerPassesInput.value = Math.max(0, Number(playerPassesInput.value) - 1);
+      clickCount = Math.max(0, clickCount - 1);
+      playerPassesInput.value = clickCount - 1;
       gridItems[index].textContent = value;
     }
   });
 
   cancelButton.addEventListener('click', () => {
+    clickCount = 0;
     playerPassesInput.value = 0;
     gridItems.forEach(gridItem => {
       gridItem.textContent = '';
