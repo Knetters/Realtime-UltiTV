@@ -1417,16 +1417,15 @@ label span {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    gap: var(--innerSpacing);
-    margin-left: 3px;
-    /* margin-top: 0.3rem; */
+    gap: 0.6rem;
 }
 
 .field-item {
     flex-basis: calc(100% / 6 - 0.5rem);
     height: 3rem;
     /* Adjust the height as needed */
-    box-shadow: var(--c-borderColor) 0px 0px 8px;
+    /* box-shadow: var(--c-borderColor) 0px 0px 8px; */
+    border: 1px solid lightgrey;
     box-sizing: border-box;
     /* Include padding and border in the element's total width */
     border-radius: var(--innerSpacing);
@@ -1468,6 +1467,7 @@ label span {
 
 .score-form-2 h4 {
     color: var(--c-blue);
+
 }
 
 .score-form-2 table {
@@ -1504,8 +1504,7 @@ label span {
     width: 100%;
     display: flex;
     border-bottom: solid 1px var(--c-mediumGray);
-    padding-left: var(--innerSpacing);
-    padding-bottom: .3rem;
+    padding-bottom: .5rem;
 }
 
 .form-row h4 {
@@ -1517,8 +1516,6 @@ label span {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding-left: var(--innerSpacing);
-    padding-right: var(--innerSpacing);
     padding-bottom: .5rem;
 }
 
@@ -1544,10 +1541,6 @@ label span {
 .form-button:hover {
     cursor: pointer;
     color: var(--c-blue);
-}
-
-.inner-form {
-    padding: var(--innerSpacing);
 }
 
 /* Styling tablet vertial */
