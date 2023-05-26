@@ -234,12 +234,12 @@ const undoButton = document.getElementById('undoButton');
 const cancelButton = document.getElementById('cancelButton');
 let history = [];
 
-if(gridItems) {
+if (gridItems) {
   gridItems.forEach((gridItem, index) => {
     gridItem.addEventListener('click', () => {
-      const currentValue = Number(playerPassesInput.value) + 1;
-      playerPassesInput.value = currentValue;
+      let currentValue = Number(playerPassesInput.value);
       gridItem.textContent = currentValue;
+      playerPassesInput.value = currentValue + 1;
       history.push({ index, value: currentValue });
     });
   });
@@ -247,8 +247,8 @@ if(gridItems) {
   undoButton.addEventListener('click', () => {
     if (history.length > 0) {
       const { index, value } = history.pop();
-      playerPassesInput.value = Number(playerPassesInput.value) - 1;
-      gridItems[index].textContent = '';
+      playerPassesInput.value = Math.max(0, Number(playerPassesInput.value) - 1);
+      gridItems[index].textContent = value;
     }
   });
 
