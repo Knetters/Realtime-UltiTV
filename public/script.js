@@ -239,7 +239,11 @@ if (gridItems) {
   gridItems.forEach((gridItem, index) => {
     gridItem.addEventListener('click', () => {
       clickCount++;
-      gridItem.textContent = clickCount - 1;
+      if (clickCount === 1) {
+        gridItem.textContent = "start";
+      } else {
+        gridItem.textContent = clickCount - 1;
+      }
       playerPassesInput.value = clickCount - 1;
       history.push({ index, value: clickCount - 1 });
     });
