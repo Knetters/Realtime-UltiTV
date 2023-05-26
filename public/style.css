@@ -1272,10 +1272,16 @@ label span {
     overflow: scroll;
     width: 100%;
     gap: var(--outerSpacing);
+<<<<<<< Updated upstream
     scroll-snap-type: x proximity;
     font-family: var(--secondairFont);
     scroll-snap-align: start;
 
+=======
+    scroll-snap-type: x proximity;   
+     font-family: var(--secondairFont);
+     scroll-snap-align: start;
+>>>>>>> Stashed changes
 }
 
 .score-message-element {
