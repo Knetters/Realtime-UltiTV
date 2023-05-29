@@ -242,13 +242,13 @@ window.addEventListener('load', function () {
 
 const phase = new SplitType('.team-name-gsap', { types: 'words, chars' })
 
-// Player passes field input
 const gridItems = document.querySelectorAll('.field-item');
 const playerPassesInput = document.getElementById('playerPasses');
 const undoButton = document.getElementById('undoButton');
 const cancelButton = document.getElementById('cancelButton');
 let clickCount = 0;
 let lastClickedIndex = null;
+let canUndo = true; // Variable to track if undo is allowed
 
 if (gridItems) {
   gridItems.forEach((gridItem, index) => {
@@ -265,9 +265,15 @@ if (gridItems) {
   });
 
   undoButton.addEventListener('click', () => {
-    if (clickCount > 0) {
+    if (canUndo && clickCount > 0) { // Check if undo is allowed and clickCount > 0
       clickCount--;
       playerPassesInput.value = clickCount - 1;
+      if (lastClickedIndex !== null) {
+        const lastClickedItem = gridItems[lastClickedIndex];
+        lastClickedItem.textContent = '';
+        lastClickedIndex = lastClickedIndex > 0 ? lastClickedIndex - 1 : null;
+      }
+      canUndo = false; // Set canUndo to false after undoing once
     }
   });
 
@@ -278,5 +284,7 @@ if (gridItems) {
       gridItem.textContent = '';
     });
     lastClickedIndex = null;
+    canUndo = true; // Reset canUndo to true when canceling
   });
 }
+

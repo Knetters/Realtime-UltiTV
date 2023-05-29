@@ -49,7 +49,10 @@
           <form id="scoreForm" onsubmit="submitForm(event)">
             <div class="inner-form">
               <label for="teamScored">Team scored <span>*</span></label>
-              <input id="teamScored" name="teamScored" type="text" value="">
+              <select id="teamScored" name="teamScored" required>
+                  <option value="Fakers">Fakers</option>
+                  <option value="Pretend team">Pretend team</option>
+              </select>
 
               <label for="playerScored">Scored by <span>*</span></label>
               <select id="playerScored" name="playerScored" required>
@@ -70,7 +73,7 @@
               </select>
 
               <label class="display-none" for="playerPasses">Passes <span>*</span></label>
-              <input class="" id="playerPasses" name="playerPasses" type="number" value="" required>
+              <input class="display-none" id="playerPasses" name="playerPasses" type="number" value="" required>
 
               <label for="turnover">Turnover <span></span></label>
               <input id="turnover" name="turnover" type="number" value="">
