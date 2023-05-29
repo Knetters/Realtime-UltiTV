@@ -1282,17 +1282,19 @@ label span {
     scroll-snap-type: x proximity;
     font-family: var(--secondairFont);
     scroll-snap-align: start;
+<<<<<<< Updated upstream
     scroll-snap-type: x proximity;
     font-family: var(--secondairFont);
     scroll-snap-align: start;
 
+=======
+>>>>>>> Stashed changes
 }
 
 .score-message-element {
     flex: 0 0 auto;
     height: 7.5rem;
     width: 100%;
-    overflow: scroll;
 }
 
 /* Optional: Hide horizontal scrollbar */
@@ -1300,10 +1302,16 @@ label span {
     display: none;
 }
 
+.score-message-wrapper {
+    scroll-snap-type: x mandatory;
+}
+
 .score-message-container {
     display: flex;
     flex-direction: row;
     line-height: 1.5em;
+    scroll-snap-align: center;
+    position: relative;
 }
 
 .left-side-message {
@@ -1311,7 +1319,8 @@ label span {
 }
 
 .right-side-message {
-    margin-left: 5%;
+    position: absolute;
+    right: 15%;
 }
 
 .goals-scored {
@@ -1373,8 +1382,45 @@ label span {
     justify-content: center;
     align-items: center;
     padding: 4px;
-    margin-right: 4%;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
+
+.score-message-container p {
+    transform: translateY(-2px);
+}
+
+.nav-dots {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 1%;
+    left: 44%;
+    color: var(--c-darkGray);
+    gap: 2px;
+    cursor: pointer;
+}
+
+
+/* CLASSES DIE UITMOETEN ALS ER GEEN CONTENT IS */
+.score-message-block {
+height: 3.2em;
+}
+
+.score-message-wrapper, .nav-dots {
+    display: none;
+}
+
+.black {
+    color: var(--c-darkGray);
+}
+
+/* .black {
+    display: none;
+} */
+
+
+
 
 /* stats grid */
 .stats-grid {
