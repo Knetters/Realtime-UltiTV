@@ -201,6 +201,27 @@ function submitForm(event) {
     });
     lastClickedIndex = null;
     canUndo = true; // Reset canUndo to true when canceling
+
+    // Get the elements with the respective classes
+  const scoreMessageBlock = document.querySelector('.score-message-block');
+  const scoreMessageWrapper = document.querySelector('.score-message-wrapper');
+  const navDots = document.querySelector('.nav-dots');
+  const black = document.querySelector('.black');
+
+  // Apply the initial styles
+  scoreMessageBlock.style.height = '3.2em';
+  scoreMessageWrapper.style.display = 'none';
+  navDots.style.display = 'none';
+  black.style.color = 'var(--c-darkGray)';
+
+  // Toggle the classes after 10 seconds
+  setTimeout(() => {
+    scoreMessageBlock.style.height = '';
+    scoreMessageWrapper.style.display = '';
+    navDots.style.display = '';
+    black.style.color = '';
+  }, 10000);
+
 }
 
 // menu in en uitklappen
