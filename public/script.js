@@ -78,31 +78,33 @@ socket.on("scoreUpdate", (data) => {
     newElement.id = "score-message-element";
     newElement.className = "score-message-element";
     newElement.innerHTML = `
-    <div class="goal-header-container">
-      <p class="goal-scored">Goal!!!</p>
-      <p class="goal-time">${timeScored}</p>
-    </div>
-    <div class="line goal-line"></div>
-
-    <p class="team-name team-name-gsap">Pretend team</p>
-    <div class="score-message-container">
-        <div class="left-side-message">
-            <div class="goals-scored">
-                <img class="goal-icon stats-icon" src="/static/img/icon-05.svg" alt="Goal icon">
-                <p>${score}</p>        
-                    </div>
-            <div class="goals-scored">
-                <img class="assist-icon stats-icon" src="/static/img/icon-04.svg" alt="Assist icon">
-                <p>${assist}</p> 
-            </div>
+    <div id="score-message-element" class="score-message-element">
+        <div class="goal-header-container">
+            <p class="goal-scored">Goal!!!</p>
+            <p class="goal-time">${timeScored}</p>
         </div>
+        <div class="line goal-line"></div>
 
-        <div class="right-side-message">
-            <img class="passes-icon stats-icon" src="/static/img/icon-06.svg" alt="Passes icon">
-            <p>${passes}</p>
-            
-            <img class="turnover-icon stats-icon" src="/static/img/icon-07.svg" alt="turnover icon">
-            <p>${turnover}</p>
+        <p class="team-name team-name-gsap">${team}</p>
+        <div class="score-message-container">
+            <div class="left-side-message">
+                <div class="goals-scored">
+                    <img class="goal-icon stats-icon" src="/static/img/icon-05.svg" alt="Goal icon">
+                    <p>${score}</p>        
+                        </div>
+                <div class="goals-scored">
+                    <img class="assist-icon stats-icon" src="/static/img/icon-04.svg" alt="Assist icon">
+                    <p>${assist}</p> 
+                </div>
+            </div>
+
+            <div class="right-side-message">
+                <img class="passes-icon stats-icon" src="/static/img/icon-06.svg" alt="Passes icon">
+                <p>${passes}</p>
+
+                <img class="turnover-icon stats-icon" src="/static/img/icon-07.svg" alt="turnover icon">
+                <p>${turnover}</p>
+            </div>
         </div>
     </div>
     `;
@@ -130,22 +132,35 @@ socket.on("scoreHistory", (history) => {
       newElement.id = "score-message-element";
       newElement.className = "score-message-element";
       newElement.innerHTML = `
+        <div id="score-message-element" class="score-message-element">
         <div class="goal-header-container">
-          <p class="goal-scored">Goal!!!</p>
-          <p class="goal-time">${timeScored}</p>
+            <p class="goal-scored">Goal!!!</p>
+            <p class="goal-time">${timeScored}</p>
         </div>
         <div class="line goal-line"></div>
-        <p class="team-name">${team}</p>
+
+        <p class="team-name team-name-gsap">${team}</p>
         <div class="score-message-container">
-          <div class="left-side-message">
-            <p>O ${score}</p>
-            <p>O ${assist}</p>
-          </div>
-          <div class="right-side-message">
-            <p>Passes ${passes}</p>
-            <div class="turnover-icon">Turnover ${turnover}</div>
-          </div>
+            <div class="left-side-message">
+                <div class="goals-scored">
+                    <img class="goal-icon stats-icon" src="/static/img/icon-05.svg" alt="Goal icon">
+                    <p>${score}</p>        
+                        </div>
+                <div class="goals-scored">
+                    <img class="assist-icon stats-icon" src="/static/img/icon-04.svg" alt="Assist icon">
+                    <p>${assist}</p> 
+                </div>
+            </div>
+
+            <div class="right-side-message">
+                <img class="passes-icon stats-icon" src="/static/img/icon-06.svg" alt="Passes icon">
+                <p>${passes}</p>
+
+                <img class="turnover-icon stats-icon" src="/static/img/icon-07.svg" alt="turnover icon">
+                <p>${turnover}</p>
+            </div>
         </div>
+    </div>
       `;
 
       scoreMessageBlock.appendChild(newElement);
@@ -233,7 +248,7 @@ const playerPassesInput = document.getElementById('playerPasses');
 const undoButton = document.getElementById('undoButton');
 const cancelButton = document.getElementById('cancelButton');
 let clickCount = 0;
-let history = [];
+let lastClickedIndex = null;
 
 if (gridItems) {
   gridItems.forEach((gridItem, index) => {
@@ -245,16 +260,26 @@ if (gridItems) {
         gridItem.textContent = clickCount - 1;
       }
       playerPassesInput.value = clickCount - 1;
-      history.push({ index, value: clickCount - 1 });
+      lastClickedIndex = index;
     });
   });
 
   undoButton.addEventListener('click', () => {
-    if (history.length > 0) {
-      const { index, value } = history.pop();
-      clickCount = Math.max(0, clickCount - 1);
-      playerPassesInput.value = clickCount - 1;
-      gridItems[index].textContent = value;
+    if (clickCount > 0 && lastClickedIndex !== null) {
+      clickCount--;
+      playerPassesInput.value = clickCount;
+  
+      // Remove the last known textContent from the gridItem
+      gridItems[lastClickedIndex].textContent = "";
+  
+      // Find the new lastClickedIndex based on the updated clickCount
+      lastClickedIndex = null;
+      for (let i = gridItems.length - 1; i >= 0; i--) {
+        if (gridItems[i].textContent !== "") {
+          lastClickedIndex = i;
+          break;
+        }
+      }
     }
   });
 
@@ -264,6 +289,6 @@ if (gridItems) {
     gridItems.forEach(gridItem => {
       gridItem.textContent = '';
     });
-    history = [];
+    lastClickedIndex = null;
   });
 }
