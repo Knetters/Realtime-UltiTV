@@ -1,36 +1,24 @@
+
+
 gsap.from('.goal-scored', {
     x: "700%",
     delay: .2,
-    duration: .7,
+    duration: 1.7,
     ease: "circ.out"
 })
 
 gsap.from('.goal-time', {
-    x: "300%",
-    delay: .7,
-    duration: .8,
-    ease: "circ.out"
-})
-
-gsap.from('.team-name-gsap', {
     x: "200%",
-    delay: .7,
+    delay: 1,
     duration: .8,
     ease: "circ.out"
 })
 
-gsap.from('.stats-icon', {
-    delay: .9,
-    x: "300px",
-    stagger: 0.1
-})
-
-gsap.from('.score-message-container p', {
-    delay: 1,
-    x: "300px",
-    stagger: 0.1
-})
-
-
-
+// gsap.from('.char', {
+//     x: 300,
+//     stagger: 0.1,
+//     delay: 0.2,
+//     duration: .3,
+//     ease: "power4.out",
+// })
 
