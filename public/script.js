@@ -233,7 +233,8 @@ const playerPassesInput = document.getElementById('playerPasses');
 const undoButton = document.getElementById('undoButton');
 const cancelButton = document.getElementById('cancelButton');
 let clickCount = 0;
-let history = [];
+let lastClickedIndex = null;
+let canUndo = true; // Variable to track if undo is allowed
 
 if (gridItems) {
   gridItems.forEach((gridItem, index) => {
@@ -245,16 +246,20 @@ if (gridItems) {
         gridItem.textContent = clickCount - 1;
       }
       playerPassesInput.value = clickCount - 1;
-      history.push({ index, value: clickCount - 1 });
+      lastClickedIndex = index;
     });
   });
 
   undoButton.addEventListener('click', () => {
-    if (history.length > 0) {
-      const { index, value } = history.pop();
-      clickCount = Math.max(0, clickCount - 1);
+    if (canUndo && clickCount > 0) { // Check if undo is allowed and clickCount > 0
+      clickCount--;
       playerPassesInput.value = clickCount - 1;
-      gridItems[index].textContent = value;
+      if (lastClickedIndex !== null) {
+        const lastClickedItem = gridItems[lastClickedIndex];
+        lastClickedItem.textContent = '';
+        lastClickedIndex = lastClickedIndex > 0 ? lastClickedIndex - 1 : null;
+      }
+      canUndo = false; // Set canUndo to false after undoing once
     }
   });
 
@@ -264,7 +269,7 @@ if (gridItems) {
     gridItems.forEach(gridItem => {
       gridItem.textContent = '';
     });
-    history = [];
+    lastClickedIndex = null;
+    canUndo = true; // Reset canUndo to true when canceling
   });
 }
-

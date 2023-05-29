@@ -1389,7 +1389,7 @@ label span {
 
 
 /* CLASSES DIE UITMOETEN ALS ER GEEN CONTENT IS */
-.score-message-block {
+/* .score-message-block {
 height: 3.2em;
 }
 
@@ -1399,14 +1399,23 @@ height: 3.2em;
 
 .black {
     color: var(--c-darkGray);
-}
-
-/* .black {
-    display: none;
 } */
 
+.black {
+    display: none;
+}
 
+.passes-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: .5rem;
+}
 
+.passes-row h4 {
+    width: 50%;
+    color: var(--c-blue);
+}
 
 /* stats grid */
 .stats-grid {
