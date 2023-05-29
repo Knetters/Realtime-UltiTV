@@ -1473,7 +1473,8 @@ height: 3.2em;
     flex-basis: calc(100% / 6 - 0.5rem);
     height: 3rem;
     /* Adjust the height as needed */
-    box-shadow: var(--c-borderColor) 0px 0px 8px;
+    /* box-shadow: var(--c-borderColor) 0px 0px 8px; */
+    border: 1px solid lightgrey;
     box-sizing: border-box;
     /* Include padding and border in the element's total width */
     border-radius: var(--innerSpacing);
