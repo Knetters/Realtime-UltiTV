@@ -172,14 +172,6 @@ function submitForm(event) {
   document.getElementById("playerAssist").value = "";
   document.getElementById("playerPasses").value = "";
   document.getElementById("turnover").value = "";
-
-  clickCount = 0;
-    playerPassesInput.value = 0;
-    gridItems.forEach(gridItem => {
-      gridItem.textContent = '';
-    });
-    lastClickedIndex = null;
-    canUndo = true; // Reset canUndo to true when canceling
 }
 
 // menu in en uitklappen
