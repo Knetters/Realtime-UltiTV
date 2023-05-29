@@ -1189,13 +1189,10 @@ form {
 
 form button {
     padding: var(--innerSpacing) var(--outerSpacing);
-    margin-bottom: 1rem;
     border: none;
     background-color: #6f82ed;
     border-radius: var(--innerSpacing);
     color: var(--c-white);
-    font-family: var(--primaryFont);
-    text-transform: uppercase;
     transition: .2s;
 }
 
@@ -1204,10 +1201,7 @@ form button:hover {
 }
 
 label {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    font-family: var(--secondairFont);
-    color: var(--c-dark);
+    font-size: .8rem;
 }
 
 input,
@@ -1219,8 +1213,7 @@ select {
     padding: var(--innerSpacing) 0;
     margin-bottom: var(--innerSpacing);
     background-color: var(--c-whiteColumns);
-    color: var(--c-dark);
-    font-family: var(--primaryFont);
+    color: var(--c-dark)
 }
 
 input:focus,
@@ -1282,17 +1275,12 @@ label span {
     scroll-snap-type: x proximity;
     font-family: var(--secondairFont);
     scroll-snap-align: start;
-    scroll-snap-type: x proximity;
-    font-family: var(--secondairFont);
-    scroll-snap-align: start;
-
 }
 
 .score-message-element {
     flex: 0 0 auto;
     height: 7.5rem;
     width: 100%;
-    overflow: scroll;
 }
 
 /* Optional: Hide horizontal scrollbar */
@@ -1300,10 +1288,16 @@ label span {
     display: none;
 }
 
+.score-message-wrapper {
+    scroll-snap-type: x mandatory;
+}
+
 .score-message-container {
     display: flex;
     flex-direction: row;
     line-height: 1.5em;
+    scroll-snap-align: center;
+    position: relative;
 }
 
 .left-side-message {
@@ -1311,7 +1305,8 @@ label span {
 }
 
 .right-side-message {
-    margin-left: 5%;
+    position: absolute;
+    right: 15%;
 }
 
 .goals-scored {
@@ -1373,14 +1368,51 @@ label span {
     justify-content: center;
     align-items: center;
     padding: 4px;
-    margin-right: 4%;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
+
+.score-message-container p {
+    transform: translateY(-2px);
+}
+
+.nav-dots {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 1%;
+    left: 44%;
+    color: var(--c-darkGray);
+    gap: 2px;
+    cursor: pointer;
+}
+
+
+/* CLASSES DIE UITMOETEN ALS ER GEEN CONTENT IS */
+.score-message-block {
+height: 3.2em;
+}
+
+.score-message-wrapper, .nav-dots {
+    display: none;
+}
+
+.black {
+    color: var(--c-darkGray);
+}
+
+/* .black {
+    display: none;
+} */
+
+
+
 
 /* stats grid */
 .stats-grid {
     display: grid;
     grid-template-columns: 1.1fr 1.1fr .8fr;
-    grid-template-rows: auto 1.1fr 2.5fr;
+    grid-template-rows: auto 1fr 2.5fr;
     grid-auto-flow: row;
     height: 100%;
     border-radius: var(--outerSpacing);
@@ -1424,15 +1456,15 @@ label span {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    gap: 0.6rem;
+    gap: var(--innerSpacing);
+    margin-left: 3px;
 }
 
 .field-item {
     flex-basis: calc(100% / 6 - 0.5rem);
     height: 3rem;
     /* Adjust the height as needed */
-    /* box-shadow: var(--c-borderColor) 0px 0px 8px; */
-    border: 1px solid lightgrey;
+    box-shadow: var(--c-borderColor) 0px 0px 8px;
     box-sizing: border-box;
     /* Include padding and border in the element's total width */
     border-radius: var(--innerSpacing);
@@ -1474,7 +1506,6 @@ label span {
 
 .score-form-2 h4 {
     color: var(--c-blue);
-
 }
 
 .score-form-2 table {
@@ -1502,8 +1533,8 @@ label span {
 
 .submit-button-stats {
     position: absolute;
-    bottom: 1rem;
-    left: 0.5rem;
+    bottom: 0;
+    left: 0;
     margin: var(--innerSpacing);
 }
 
@@ -1511,7 +1542,7 @@ label span {
     width: 100%;
     display: flex;
     border-bottom: solid 1px var(--c-mediumGray);
-    padding-bottom: .5rem;
+    padding-bottom: .3rem;
 }
 
 .form-row h4 {
@@ -1519,19 +1550,8 @@ label span {
     color: var(--c-blue);
 }
 
-.passes-row {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: .5rem;
-}
-
-.passes-row h4 {
-    width: 50%;
-    color: var(--c-blue);
-}
-
 .form-button-row {
+    width: 50%;
     text-align: right;
 }
 
@@ -1548,10 +1568,6 @@ label span {
 .form-button:hover {
     cursor: pointer;
     color: var(--c-blue);
-}
-
-.inner-form {
-    margin-top: 1rem;
 }
 
 /* Styling tablet vertial */
