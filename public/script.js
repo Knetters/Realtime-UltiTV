@@ -265,21 +265,9 @@ if (gridItems) {
   });
 
   undoButton.addEventListener('click', () => {
-    if (clickCount > 0 && lastClickedIndex !== null) {
+    if (clickCount > 0) {
       clickCount--;
-      playerPassesInput.value = clickCount;
-  
-      // Remove the last known textContent from the gridItem
-      gridItems[lastClickedIndex].textContent = "";
-  
-      // Find the new lastClickedIndex based on the updated clickCount
-      lastClickedIndex = null;
-      for (let i = gridItems.length - 1; i >= 0; i--) {
-        if (gridItems[i].textContent !== "") {
-          lastClickedIndex = i;
-          break;
-        }
-      }
+      playerPassesInput.value = clickCount - 1;
     }
   });
 
