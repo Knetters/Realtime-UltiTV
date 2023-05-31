@@ -1471,7 +1471,7 @@ height: 3.2em;
 
 .field-item {
     flex-basis: calc(100% / 6 - 0.5rem);
-    height: 3rem;
+    height: 2.5rem;
     /* Adjust the height as needed */
     /* box-shadow: var(--c-borderColor) 0px 0px 8px; */
     border: 1px solid lightgrey;
@@ -1485,7 +1485,7 @@ height: 3.2em;
     text-align: center;
     font-weight: bold;
     font-family: var(--secondairFont);
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--c-blue);
 }
 
