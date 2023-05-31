@@ -1,3 +1,5 @@
+if (content = true) {
+
 gsap.from('.goal-scored', {
     x: "700%",
     delay: .2,
@@ -30,6 +32,9 @@ gsap.from('.score-message-container p', {
     x: "300px",
     stagger: 0.1
 })
+
+}
+
 
 
 

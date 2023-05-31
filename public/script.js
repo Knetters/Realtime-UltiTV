@@ -30,33 +30,45 @@ function toggleDarkMode() {
   }
 }
 
+let toggleLoadingState = document.querySelector('.goal-scored')
+let toggleScoreBlock = document.querySelector('.score-message-wrapper')
+let content = true
+
+jsToggleLoad()
+
+function jsToggleLoad() {
+  if (content === true) {
+    toggleLoadingState.classList.add('black');
+  }
+};
+
 // Tijd aftellen
 const timerContainer = document.getElementById("time-box-container")
 
-if(timerContainer) {
-    var countDownDate = new Date().getTime() + 40*60*1000
-    var x = setInterval(function() {
+if (timerContainer) {
+  var countDownDate = new Date().getTime() + 40 * 60 * 1000
+  var x = setInterval(function () {
 
-        var now = new Date().getTime()
-        var distance = countDownDate - now
+    var now = new Date().getTime()
+    var distance = countDownDate - now
 
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000)
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000)
 
-        if (minutes < 10) { minutes = "0" + minutes; }
-        if (seconds < 10) { seconds = "0" + seconds; }
+    if (minutes < 10) { minutes = "0" + minutes; }
+    if (seconds < 10) { seconds = "0" + seconds; }
 
-        const timerValue = minutes + ":" + seconds
+    const timerValue = minutes + ":" + seconds
 
-        // Zet de minuten en seconden in de html
-        document.getElementById("timer").innerHTML = timerValue
+    // Zet de minuten en seconden in de html
+    document.getElementById("timer").innerHTML = timerValue
 
-        if (distance <= 0) {
-            clearInterval(x)
-            document.getElementById("timer").innerHTML = "0:00"
-        }
+    if (distance <= 0) {
+      clearInterval(x)
+      document.getElementById("timer").innerHTML = "0:00"
+    }
 
-    }, 1000)
+  }, 1000)
 }
 
 // Connect to the Socket.IO server
@@ -176,17 +188,17 @@ socket.on("scoreHistory", (history) => {
   }
 });
 
+
 // Submit the form and emit the "playerScore" event
 function submitForm(event) {
   event.preventDefault();
-
   const teamScored = document.getElementById("teamScored").value;
   const playerScore = document.getElementById("playerScored").value;
   const playerAssist = document.getElementById("playerAssist").value;
   const playerPasses = document.getElementById("playerPasses").value;
   const turnover = document.getElementById("turnover").value;
 
-  socket.emit("playerScore", { team: teamScored, score: playerScore, assist: playerAssist, passes: playerPasses, turnover: turnover});
+  socket.emit("playerScore", { team: teamScored, score: playerScore, assist: playerAssist, passes: playerPasses, turnover: turnover });
 
   document.getElementById("teamScored").value = "";
   document.getElementById("playerScored").value = "";
@@ -194,14 +206,28 @@ function submitForm(event) {
   document.getElementById("playerPasses").value = "";
   document.getElementById("turnover").value = "";
 
+
+
+
   clickCount = 0;
+<<<<<<< Updated upstream
     playerPassesInput.value = 0;
     gridItems.forEach(gridItem => {
       gridItem.textContent = '';
     });
     lastClickedIndex = null;
     canUndo = true; // Reset canUndo to true when canceling
+=======
+  playerPassesInput.value = 0;
+  gridItems.forEach(gridItem => {
+    gridItem.textContent = '';
+  });
+  lastClickedIndex = null;
+  canUndo = true; // Reset canUndo to true when canceling
+
+>>>>>>> Stashed changes
 }
+
 
 // menu in en uitklappen
 const menuToggle = document.querySelector('.menu-toggle-button')
@@ -214,20 +240,20 @@ const biggerIcons3 = document.querySelector('.menu-icon3')
 const biggerIcons4 = document.querySelector('.menu-icon4')
 const ultiLogo = document.querySelector('.logo')
 
-menuToggle.addEventListener ('click', toggleMenu)
+menuToggle.addEventListener('click', toggleMenu)
 
 function toggleMenu() {
-    sidebarToggle.classList.toggle ('toggle-sidebar')
-    mainToggle.classList.toggle ('toggle-sidebar-main')
-    removeButtonText.forEach((removeButtonText) => {
-        removeButtonText.classList.toggle ('remove-button-text')
-    });
-    biggerIcons1.classList.toggle ('bigger-icons')
-    biggerIcons2.classList.toggle ('bigger-icons')
-    biggerIcons3.classList.toggle ('bigger-icons')
-    biggerIcons4.classList.toggle ('bigger-icons')
-    ultiLogo.classList.toggle ('remove-logo')
-    menuToggle.classList.toggle ('rotate-button')
+  sidebarToggle.classList.toggle('toggle-sidebar')
+  mainToggle.classList.toggle('toggle-sidebar-main')
+  removeButtonText.forEach((removeButtonText) => {
+    removeButtonText.classList.toggle('remove-button-text')
+  });
+  biggerIcons1.classList.toggle('bigger-icons')
+  biggerIcons2.classList.toggle('bigger-icons')
+  biggerIcons3.classList.toggle('bigger-icons')
+  biggerIcons4.classList.toggle('bigger-icons')
+  ultiLogo.classList.toggle('remove-logo')
+  menuToggle.classList.toggle('rotate-button')
 }
 
 // Add player
@@ -236,22 +262,22 @@ const closePlayerButton = document.getElementById("close-player-button")
 const teamPlayers = document.getElementById("teamPlayers")
 const playerForm = document.getElementById("playerForm")
 
-if(addPlayerButton) {
-    addPlayerButton.addEventListener ("click", toggleForm)
-    closePlayerButton.addEventListener ("click", toggleForm)
+if (addPlayerButton) {
+  addPlayerButton.addEventListener("click", toggleForm)
+  closePlayerButton.addEventListener("click", toggleForm)
 
-    function toggleForm() {
-        teamPlayers.classList.toggle("d-none")
-        playerForm.classList.toggle("active")
-    }
+  function toggleForm() {
+    teamPlayers.classList.toggle("d-none")
+    playerForm.classList.toggle("active")
+  }
 }
 
 // Loading screen
 window.addEventListener('load', function () {
-    const loadingPage = document.querySelector('#loading');
-    if(loadingPage) {
-        loadingPage.style.display = 'none';
-    }
+  const loadingPage = document.querySelector('#loading');
+  if (loadingPage) {
+    loadingPage.style.display = 'none';
+  }
 });
 
 const phase = new SplitType('.team-name-gsap', { types: 'words, chars' })
@@ -302,3 +328,9 @@ if (gridItems) {
     canUndo = true; // Reset canUndo to true when canceling
   });
 }
+
+
+
+
+
+

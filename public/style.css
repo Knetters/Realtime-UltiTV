@@ -1275,6 +1275,7 @@ label span {
     scroll-snap-type: x proximity;
     font-family: var(--secondairFont);
     scroll-snap-align: start;
+
 }
 
 .score-message-element {
@@ -1389,20 +1390,13 @@ label span {
 
 
 /* CLASSES DIE UITMOETEN ALS ER GEEN CONTENT IS */
-/* .score-message-block {
+.content-state {
 height: 3.2em;
 }
 
-.score-message-wrapper, .nav-dots {
-    display: none;
-}
-
 .black {
+    display: none;
     color: var(--c-darkGray);
-} */
-
-.black {
-    display: none;
 }
 
 .passes-row {
