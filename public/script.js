@@ -30,6 +30,14 @@ function toggleDarkMode() {
   }
 }
 
+// Loading screen
+window.addEventListener('load', function () {
+  const loadingPage = document.querySelector('#loading');
+  if (loadingPage) {
+    loadingPage.style.display = 'none';
+  }
+});
+
 let toggleLoadingState = document.querySelector('.goal-scored')
 let toggleScoreBlock = document.querySelector('.score-message-wrapper')
 let content = true
@@ -257,14 +265,6 @@ if (addPlayerButton) {
     playerForm.classList.toggle("active")
   }
 }
-
-// Loading screen
-window.addEventListener('load', function () {
-  const loadingPage = document.querySelector('#loading');
-  if (loadingPage) {
-    loadingPage.style.display = 'none';
-  }
-});
 
 const phase = new SplitType('.team-name-gsap', { types: 'words, chars' })
 
