@@ -206,28 +206,14 @@ function submitForm(event) {
   document.getElementById("playerPasses").value = "";
   document.getElementById("turnover").value = "";
 
-
-
-
   clickCount = 0;
-<<<<<<< Updated upstream
     playerPassesInput.value = 0;
     gridItems.forEach(gridItem => {
       gridItem.textContent = '';
     });
     lastClickedIndex = null;
     canUndo = true; // Reset canUndo to true when canceling
-=======
-  playerPassesInput.value = 0;
-  gridItems.forEach(gridItem => {
-    gridItem.textContent = '';
-  });
-  lastClickedIndex = null;
-  canUndo = true; // Reset canUndo to true when canceling
-
->>>>>>> Stashed changes
 }
-
 
 // menu in en uitklappen
 const menuToggle = document.querySelector('.menu-toggle-button')
@@ -328,9 +314,3 @@ if (gridItems) {
     canUndo = true; // Reset canUndo to true when canceling
   });
 }
-
-
-
-
-
-
